@@ -5,6 +5,7 @@ using Fight.Health;
 using Fight.Shooting;
 using Fight.State;
 using Fight.World;
+using Sirenix.Serialization;
 using UnityEngine;
 using Zenject;
 
@@ -21,6 +22,7 @@ namespace Installers
         [SerializeField] private SpawnPointContainer _spawnPointsContainer;
         [SerializeField] private SpawnStrategy _spawnStrategy;
         [SerializeField] private IlluminationController _illuminationController;
+        [SerializeField] private InventoryData _defaultInventory;
         public override void InstallBindings()
         {
             base.InstallBindings();

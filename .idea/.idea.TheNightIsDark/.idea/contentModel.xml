@@ -489,6 +489,7 @@
             <e p="zenject.asmdef" t="Include" />
           </e>
         </e>
+        <e p="ShopManager.cs" t="Include" />
         <e p="Source" t="Include">
           <e p="Common" t="Include">
             <e p="AudioSystem" t="Include">
@@ -562,6 +563,9 @@
           </e>
           <e p="Tools" t="Include">
             <e p="ScriptableObjectCreator.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="HUD.cs" t="Include" />
           </e>
         </e>
       </e>

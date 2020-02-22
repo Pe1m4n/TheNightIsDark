@@ -33,6 +33,7 @@ namespace Fight.Enemies
         {
             State = enemyState;
             var rb = GetComponent<Rigidbody2D>();
+            _animationController = GetComponent<Animator>();
             
             _rotationComponent = new RotationComponent(rb);
             Behaviour = new WalkBehaviour(rb, State, _rotationComponent);
@@ -40,6 +41,7 @@ namespace Fight.Enemies
         }
 
         private bool _attacking;
+        private Animator _animationController;
 
         protected override void Update()
         {
@@ -64,6 +66,7 @@ namespace Fight.Enemies
         private void BeginAttacking()
         {
             Behaviour = null;
+            _animationController.SetBool("InAttack", true);
         }
 
         private void OnDeath()

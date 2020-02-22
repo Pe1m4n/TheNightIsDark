@@ -7,6 +7,11 @@
         public InventoryState(InventoryData data)
         {
             Data = data;
+
+            AmmoCount = data.AmmoCount;
+            BarrelCount = data.BarrelCount;
+            MineCount = data.MineCount;
+            Dollars = data.Dollars;
         }
         
         public int AmmoCount { get; set; }
