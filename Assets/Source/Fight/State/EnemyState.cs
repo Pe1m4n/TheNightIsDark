@@ -33,7 +33,7 @@ namespace Fight.State
                 return false;
             }
             
-            var hits = Physics2D.OverlapCircleAll(position, radius, 2);
+            var hits = Physics2D.OverlapCircleAll(position, radius, 9);
             if (hits == null)
             {
                 return false;

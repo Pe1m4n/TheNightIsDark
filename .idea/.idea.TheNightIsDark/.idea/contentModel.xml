@@ -492,6 +492,7 @@
         <e p="Source" t="Include">
           <e p="Common" t="Include">
             <e p="AudioSystem" t="Include">
+              <e p="AudioComponent.cs" t="Include" />
               <e p="AudioTrack.cs" t="Include" />
             </e>
             <e p="ExtendedMonoBehaviour.cs" t="Include" />

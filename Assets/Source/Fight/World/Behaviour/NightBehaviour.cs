@@ -39,7 +39,6 @@ namespace Fight
         {
             var unitData = _spawnStrategy.GetUnitToSpawn();
             _enemyFactory.Create(unitData, _spawnPointContainer.GetRandomSpawnPoint());
-            Debug.LogWarning($"Spawning {unitData.Name}");
             _nextSpawn = Time.time + _spawnStrategy.SpawnRateSeconds;
         }
     }
