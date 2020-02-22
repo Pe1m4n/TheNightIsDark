@@ -1,4 +1,5 @@
-﻿using Common.InputSystem;
+﻿using System;
+using Common.InputSystem;
 using Fight;
 using Fight.Enemies;
 using Fight.Health;
@@ -32,6 +33,9 @@ namespace Installers
             BindSpawning();
 
             Container.Bind<PlayerView>().FromInstance(playerView).AsSingle();
+            Container.BindInterfacesAndSelfTo<ReactiveStateHolder>().AsSingle().NonLazy();
+            Container.Bind<IObservable<FightState>>().FromResolveGetter<ReactiveStateHolder>(sh => sh.ObservableState)
+                .AsSingle();
         }
 
         private void BindSpawning()

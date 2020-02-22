@@ -1674,6 +1674,7 @@ GameObject:
   - component: {fileID: 823241928}
   - component: {fileID: 823241927}
   - component: {fileID: 823241929}
+  - component: {fileID: 823241930}
   m_Layer: 5
   m_Name: UI_Background
   m_TagString: Untagged
@@ -1756,6 +1757,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI_Shop: {fileID: 0}
   ShopButton: {fileID: 0}
+--- !u!114 &823241930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823241925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0dcc49f24a042fcaf14d76c960ebc49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ammoAmountText: {fileID: 920307913}
+  _healthAmountText: {fileID: 481388428}
+  _dollarsAmountText: {fileID: 1395354283}
 --- !u!1 &836459543
 GameObject:
   m_ObjectHideFlags: 0
@@ -4164,6 +4180,7 @@ MonoBehaviour:
   _spawnPointsContainer: {fileID: 244085688}
   _spawnStrategy: {fileID: 11400000, guid: 8db8b28786b9e4348a53f87ece5a3b6a, type: 2}
   _illuminationController: {fileID: 2043429138}
+  _defaultInventory: {fileID: 0}
 --- !u!1 &2115881220
 GameObject:
   m_ObjectHideFlags: 0

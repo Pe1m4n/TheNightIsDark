@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Fight.State;
 using UnityEngine;
 
 namespace Fight.Shooting
@@ -7,13 +8,14 @@ namespace Fight.Shooting
     public class WeaponState
     {
         public int AmmoLoaded { get; private set; }
-        public int TotalAmmo { get; private set; }
         public bool Reloading { get; private set; }
         public WeaponData WeaponData { get; }
-        
-        public WeaponState(WeaponData data)
+        public InventoryState InventoryData { get; }
+
+        public WeaponState(WeaponData data, InventoryState inventoryData)
         {
             WeaponData = data;
+            InventoryData = inventoryData;
         }
 
         public void SetAmmo(int count)
@@ -48,9 +50,8 @@ namespace Fight.Shooting
                 await Task.Delay(TimeSpan.FromSeconds(WeaponData.ReloadTime));
             }
 
-            //var countToLoad = Mathf.Clamp(TotalAmmo, 0, WeaponData.BulletCapacity);
-            var countToLoad = WeaponData.BulletCapacity;
-            TotalAmmo -= countToLoad;
+            var countToLoad = Mathf.Clamp(InventoryData.AmmoCount, 0, WeaponData.BulletCapacity);
+            InventoryData.AmmoCount -= countToLoad;
             AmmoLoaded = countToLoad;
             
             Reloading = false;

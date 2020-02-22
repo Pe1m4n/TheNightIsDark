@@ -18,12 +18,12 @@ namespace Fight.State
         
         public PlayerState(PlayerData playerData)
         {
-            var weapon = new WeaponState(playerData.DefaultWeapon);
+            HealthState = new HealthState(playerData.HealthData);
+            InventoryState = new InventoryState(playerData.DefaultInventory);
+            var weapon = new WeaponState(playerData.DefaultWeapon, InventoryState);
             weapon.Reload(true);
             Weapons.Add(playerData.DefaultWeapon.Name, weapon);
             CurrentWeapon = weapon;
-            HealthState = new HealthState(playerData.HealthData);
-            InventoryState = new InventoryState(playerData.DefaultInventory);
         }
 
         public void SetPosition(Vector2 position)
