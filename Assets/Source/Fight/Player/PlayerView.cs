@@ -24,6 +24,7 @@ namespace Fight
             _inputSystem = inputSystem;
             _bulletFactory = bulletFactory;
             _playerState = playerState;
+            _playerState.SetPosition(transform.position);
         }
 
         private void Awake()

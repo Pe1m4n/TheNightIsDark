@@ -11,5 +11,6 @@ namespace Fight.Enemies
         [OdinSerialize] public HealthData HealthData { get; set; }
         [OdinSerialize] public AttackData AttackData { get; set; }
         [OdinSerialize] public EnemyView EnemyPrefab { get; set; }
+        [OdinSerialize] public float Speed { get; set; }
     }
 }

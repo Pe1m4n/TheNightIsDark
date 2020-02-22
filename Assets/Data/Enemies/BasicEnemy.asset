@@ -46,3 +46,6 @@ MonoBehaviour:
     - Name: EnemyPrefab
       Entry: 10
       Data: 0
+    - Name: Speed
+      Entry: 4
+      Data: 2

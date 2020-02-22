@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Fight.State.SubStates;
 using UnityEngine;
 using Zenject;
 
@@ -17,7 +18,8 @@ namespace Fight.Shooting
 
         public override BulletView Create(BulletData data, Vector3 position, Quaternion rotation)
         {
-            var bullet = _container.InstantiatePrefabForComponent<BulletView>(data.BulletPrefab, position, rotation, _transform, new List<object>(){data});
+            var state = new BulletState(data);
+            var bullet = _container.InstantiatePrefabForComponent<BulletView>(data.BulletPrefab, position, rotation, _transform, new List<object>(){state});
             bullet.SetForce(bullet.transform.up * data.Speed);
             return bullet;
         }
