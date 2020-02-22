@@ -10,14 +10,17 @@ namespace Fight.Shooting
         private readonly Transform _shootingTransform;
         private readonly AudioComponent _audioComponent;
         private readonly PlayerState _playerState;
+        private readonly LightFlashAnimation _flashAnimation;
 
         public ShootingComponent(BulletFactory bulletFactory,
-            Transform shootingTransform, AudioComponent audioComponent, PlayerState playerState)
+            Transform shootingTransform, AudioComponent audioComponent, PlayerState playerState,
+            LightFlashAnimation flashAnimation)
         {
             _bulletFactory = bulletFactory;
             _shootingTransform = shootingTransform;
             _audioComponent = audioComponent;
             _playerState = playerState;
+            _flashAnimation = flashAnimation;
         }
 
         public void Shoot()
@@ -30,6 +33,7 @@ namespace Fight.Shooting
                 {
                     _playerState.CurrentWeapon.Reload();
                 }
+                _flashAnimation.Flash();
             }
         }
     }
