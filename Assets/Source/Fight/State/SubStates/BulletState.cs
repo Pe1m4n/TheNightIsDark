@@ -28,7 +28,6 @@ namespace Fight.State.SubStates
 
         public EnemyState CheckHit(Vector2 position)
         {
-            
             var hitsCount = Physics2D.OverlapAreaNonAlloc(_lastPosition, position, _hitColliders);
 
             _lastPosition = position;
@@ -38,7 +37,12 @@ namespace Fight.State.SubStates
                 return null;
             }
 
-            return _hitColliders[0].GetComponent<EnemyView>().State;
+            var enemyView = _hitColliders[0].GetComponent<EnemyView>();
+            if (enemyView == null)
+            {
+                return null;
+            }
+            return enemyView.State;
         }
 
         public bool IsOutdated()

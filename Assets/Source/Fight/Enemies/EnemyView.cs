@@ -1,4 +1,5 @@
 ﻿using Common;
+using Common.AudioSystem;
 using Fight.Health;
 using Fight.State;
 using UnityEngine;
@@ -11,8 +12,10 @@ namespace Fight.Enemies
     {
         public EnemyState State { get; private set; }
 
+        private AudioSource _audioSource;
         private EnemyBehaviour _behaviour;
         private RotationComponent _rotationComponent;
+        private AudioTrack _deathSound;
 
         public EnemyBehaviour Behaviour
         {
@@ -33,9 +36,11 @@ namespace Fight.Enemies
             
             _rotationComponent = new RotationComponent(rb);
             Behaviour = new WalkBehaviour(rb, State, _rotationComponent);
+            _audioSource = GetComponent<AudioSource>();
         }
 
         private bool _attacking;
+
         protected override void Update()
         {
             _rotationComponent.Update(State.Destination);
@@ -63,6 +68,7 @@ namespace Fight.Enemies
 
         private void OnDeath()
         {
+            
             Destroy(gameObject);
         }
     }
