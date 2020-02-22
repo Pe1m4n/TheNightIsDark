@@ -19,7 +19,6 @@ namespace Fight
 
         public void Flash()
         {
-            Debug.LogError("Flash flashed");
             _currentSequence?.Kill(true);
 
             _currentSequence = DOTween.Sequence();
