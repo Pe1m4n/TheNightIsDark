@@ -15,12 +15,16 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 7807384051191956856, guid: f9648acc62352af4c81a6fd9c6035dfb, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: Name
+      Entry: 1
+      Data: BasicEnemy
     - Name: HealthData
       Entry: 7
       Data: 0|Fight.Health.HealthData, Assembly-CSharp
@@ -40,5 +44,5 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: EnemyPrefab
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0

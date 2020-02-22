@@ -1,4 +1,4 @@
-﻿using Fight.Shooting;
+﻿using System.Collections.Generic;
 
 namespace Fight.State
 {
@@ -10,5 +10,6 @@ namespace Fight.State
         }
         
         public PlayerState PlayerState { get; private set; }
+        public List<EnemyState> Enemies { get; } = new List<EnemyState>();
     }
 }

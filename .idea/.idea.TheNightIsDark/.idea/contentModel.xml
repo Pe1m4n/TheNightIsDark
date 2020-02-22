@@ -506,12 +506,16 @@
             </e>
             <e p="Enemies" t="Include">
               <e p="EnemyData.cs" t="Include" />
+              <e p="EnemyFactory.cs" t="Include" />
               <e p="EnemyView.cs" t="Include" />
+              <e p="SpawnPoint.cs" t="Include" />
             </e>
             <e p="Player" t="Include">
               <e p="PlayerData.cs" t="Include" />
               <e p="PlayerView.cs" t="Include" />
             </e>
+            <e p="SpawnPointContainer.cs" t="Include" />
+            <e p="SpawnStrategy.cs" t="Include" />
             <e p="State" t="Include">
               <e p="EnemyState.cs" t="Include" />
               <e p="FIghtState.cs" t="Include" />
@@ -521,6 +525,15 @@
                 <e p="WeaponState.cs" t="Include" />
               </e>
             </e>
+            <e p="World" t="Include">
+              <e p="Behaviour" t="Include">
+                <e p="NightBehaviour.cs" t="Include" />
+                <e p="WorldBehaviourStrategy.cs" t="Include" />
+              </e>
+              <e p="IlluminationController.cs" t="Include" />
+              <e p="WorldState.cs" t="Include" />
+            </e>
+            <e p="WorldController.cs" t="Include" />
           </e>
           <e p="Installers" t="Include">
             <e p="FightSceneInstaller.cs" t="Include" />

@@ -1,8 +1,10 @@
 ﻿using Common.InputSystem;
 using Fight;
+using Fight.Enemies;
 using Fight.Health;
 using Fight.Shooting;
 using Fight.State;
+using Fight.World;
 using UnityEngine;
 using Zenject;
 
@@ -13,17 +15,30 @@ namespace Installers
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private PlayerView playerView;
         [SerializeField] private Transform _bulletPoolTransform;
+        [SerializeField] private Transform _enemyContainerTransform;
 
-        [SerializeField] private HealthData _playerHealthData;
-        [SerializeField] private WeaponData _defaultWeapon;
+        [SerializeField] private PlayerData _playerData;
+        [SerializeField] private SpawnPointContainer _spawnPointsContainer;
+        [SerializeField] private SpawnStrategy _spawnStrategy;
+        [SerializeField] private IlluminationController _illuminationController;
         public override void InstallBindings()
         {
             base.InstallBindings();
             
             BindCore();
             BindPlayerComponents();
+            BindSpawning();
 
             Container.Bind<PlayerView>().FromInstance(playerView).AsSingle();
+        }
+
+        private void BindSpawning()
+        {
+            Container.BindFactory<EnemyData, SpawnPoint, EnemyView, EnemyFactory>()
+                .WithFactoryArguments(_enemyContainerTransform);
+
+            Container.Bind<SpawnPointContainer>().FromInstance(_spawnPointsContainer).AsSingle();
+            Container.Bind<SpawnStrategy>().FromInstance(_spawnStrategy).AsSingle();
         }
 
         private void BindPlayerComponents()
@@ -36,9 +51,13 @@ namespace Installers
         private void BindCore()
         {
             Container.Bind<FightState>().AsSingle();
-            Container.Bind<PlayerState>().AsSingle().WithArguments(_playerHealthData, _defaultWeapon);
+            Container.Bind<PlayerState>().AsSingle().WithArguments(_playerData);
             Container.Bind<Camera>().FromInstance(_mainCamera).AsSingle();
             Container.BindInterfacesTo<UnityInputSystem>().AsSingle();
+
+            Container.Bind<IlluminationController>().FromInstance(_illuminationController).AsSingle();
+            Container.BindInterfacesAndSelfTo<WorldController>().AsSingle().NonLazy();
+            Container.Bind<NightBehaviour>().AsSingle().NonLazy();
         }
     }
 }
