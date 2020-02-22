@@ -16,6 +16,7 @@ namespace Fight
         private AudioComponent _audioComponent;
         private BulletFactory _bulletFactory;
         private PlayerState _playerState;
+        [SerializeField] private LightFlashAnimation _flashAnimation;
 
         [Inject]
         public void SetUp(IInputSystem inputSystem, BulletFactory bulletFactory, PlayerState playerState)
@@ -30,7 +31,7 @@ namespace Fight
             var rigidBody = GetComponent<Rigidbody2D>();
             _rotationComponent = new RotationComponent(rigidBody);
             _audioComponent = new AudioComponent(GetComponent<AudioSource>());
-            _shootingComponent = new ShootingComponent(_bulletFactory, transform, _audioComponent, _playerState);
+            _shootingComponent = new ShootingComponent(_bulletFactory, transform, _audioComponent, _playerState, _flashAnimation);
         }
 
         protected override void Update()
