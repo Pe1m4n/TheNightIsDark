@@ -331,7 +331,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c06070e2c64f188cbadb6d56a59217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponData: {fileID: 11400000, guid: dd893a493fb78744a9a37d8dbf6eb190, type: 2}
 --- !u!50 &653437836
 Rigidbody2D:
   serializedVersion: 4
@@ -645,7 +644,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.7924528, g: 0.6184446, b: 0.18316127, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.1
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 000000009b952cfa99d0f92f
@@ -877,5 +876,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 1008837656}
-  _player: {fileID: 653437835}
+  playerView: {fileID: 0}
   _bulletPoolTransform: {fileID: 0}
+  _playerHealthData:
+    _totalHealth: 0
+  _defaultWeapon: {fileID: 0}

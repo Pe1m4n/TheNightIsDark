@@ -5,7 +5,7 @@ using Zenject;
 namespace Fight.Shooting
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Bullet : ExtendedMonoBehaviour
+    public class BulletView : ExtendedMonoBehaviour
     {
         private Rigidbody2D _rigidbody2D;
         private BulletData _bulletData;

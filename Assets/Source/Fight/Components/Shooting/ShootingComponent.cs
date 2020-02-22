@@ -1,38 +1,34 @@
-﻿using UnityEngine;
+﻿using Fight.State;
+using UnityEngine;
 using Zenject;
 
 namespace Fight.Shooting
 {
     public class ShootingComponent
     {
-        private IFactory<BulletData, Vector3, Quaternion, Bullet> _bulletFactory;
+        private IFactory<BulletData, Vector3, Quaternion, BulletView> _bulletFactory;
         private readonly Transform _shootingTransform;
         private readonly AudioComponent _audioComponent;
-
-        private Weapon _currentWeapon;
+        private readonly PlayerState _playerState;
 
         public ShootingComponent(BulletFactory bulletFactory,
-            Transform shootingTransform, AudioComponent audioComponent)
+            Transform shootingTransform, AudioComponent audioComponent, PlayerState playerState)
         {
             _bulletFactory = bulletFactory;
             _shootingTransform = shootingTransform;
             _audioComponent = audioComponent;
-        }
-
-        public void SetWeapon(Weapon weaponData)
-        {
-            _currentWeapon = weaponData;
+            _playerState = playerState;
         }
 
         public void Shoot()
         {
-            if (_currentWeapon != null && _currentWeapon.Shoot())
+            if (_playerState.CurrentWeapon != null && _playerState.CurrentWeapon.Shoot())
             {
-                _bulletFactory.Create(_currentWeapon.WeaponData.BulletData, _shootingTransform.position, _shootingTransform.rotation);
-                _audioComponent.Play(_currentWeapon.WeaponData.ShootingSound);
-                if (_currentWeapon.AmmoLoaded <= 0)
+                _bulletFactory.Create(_playerState.CurrentWeapon.WeaponData.BulletData, _shootingTransform.position, _shootingTransform.rotation);
+                _audioComponent.Play(_playerState.CurrentWeapon.WeaponData.ShootingSound);
+                if (_playerState.CurrentWeapon.AmmoLoaded <= 0)
                 {
-                    _currentWeapon.Reload();
+                    _playerState.CurrentWeapon.Reload();
                 }
             }
         }

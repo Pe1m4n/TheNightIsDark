@@ -4,14 +4,14 @@ using UnityEngine;
 
 namespace Fight.Shooting
 {
-    public class Weapon
+    public class WeaponState
     {
         public int AmmoLoaded { get; private set; }
         public int TotalAmmo { get; private set; }
         public bool Reloading { get; private set; }
         public WeaponData WeaponData { get; }
         
-        public Weapon(WeaponData data)
+        public WeaponState(WeaponData data)
         {
             WeaponData = data;
         }

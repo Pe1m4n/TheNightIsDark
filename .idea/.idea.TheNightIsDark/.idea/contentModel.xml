@@ -481,6 +481,7 @@
               <e p="AudioTrack.cs" t="Include" />
             </e>
             <e p="ExtendedMonoBehaviour.cs" t="Include" />
+            <e p="ExtendedScriptableObject.cs" t="Include" />
             <e p="InputSystem" t="Include">
               <e p="IInputSystem.cs" t="Include" />
               <e p="UnityInputSystem.cs" t="Include" />
@@ -489,21 +490,36 @@
           <e p="Fight" t="Include">
             <e p="Components" t="Include">
               <e p="AudioComponent.cs" t="Include" />
+              <e p="Health" t="Include">
+                <e p="AttackData.cs" t="Include" />
+                <e p="HealthData.cs" t="Include" />
+                <e p="IHealthStateContainer.cs" t="Include" />
+              </e>
               <e p="RotationComponent.cs" t="Include" />
               <e p="Shooting" t="Include">
-                <e p="Bullet.cs" t="Include" />
                 <e p="BulletData.cs" t="Include" />
                 <e p="BulletFactory.cs" t="Include" />
+                <e p="BulletView.cs" t="Include" />
                 <e p="ShootingComponent.cs" t="Include" />
-                <e p="Weapon.cs" t="Include" />
                 <e p="WeaponData.cs" t="Include" />
               </e>
             </e>
             <e p="Enemies" t="Include">
-              <e p="Enemy.cs" t="Include" />
+              <e p="EnemyData.cs" t="Include" />
+              <e p="EnemyView.cs" t="Include" />
             </e>
             <e p="Player" t="Include">
-              <e p="Player.cs" t="Include" />
+              <e p="PlayerData.cs" t="Include" />
+              <e p="PlayerView.cs" t="Include" />
+            </e>
+            <e p="State" t="Include">
+              <e p="EnemyState.cs" t="Include" />
+              <e p="FIghtState.cs" t="Include" />
+              <e p="PlayerState.cs" t="Include" />
+              <e p="SubStates" t="Include">
+                <e p="HealthState.cs" t="Include" />
+                <e p="WeaponState.cs" t="Include" />
+              </e>
             </e>
           </e>
           <e p="Installers" t="Include">

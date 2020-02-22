@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using Fight.Health;
+using UnityEngine;
 
 namespace Fight.Shooting
 {
     public class BulletData : ScriptableObject
     {
         [SerializeField] private float _speed;
-        [SerializeField] private Bullet _bulletPrefab;
+        [SerializeField] private BulletView _bulletPrefab;
+        [SerializeField] private AttackData _attackData;
 
         public float Speed => _speed;
-        public Bullet BulletPrefab => _bulletPrefab;
+        public BulletView BulletPrefab => _bulletPrefab;
+        public AttackData AttackData => _attackData;
     }
 }

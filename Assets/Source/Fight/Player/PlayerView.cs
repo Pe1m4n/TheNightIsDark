@@ -1,26 +1,28 @@
 ﻿using Common;
 using Common.InputSystem;
 using Fight.Shooting;
+using Fight.State;
 using UnityEngine;
 using Zenject;
 
 namespace Fight
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
-    public class Player : ExtendedMonoBehaviour
+    public class PlayerView : ExtendedMonoBehaviour
     {
         private IInputSystem _inputSystem;
         private RotationComponent _rotationComponent;
         private ShootingComponent _shootingComponent;
         private AudioComponent _audioComponent;
         private BulletFactory _bulletFactory;
-        [SerializeField] private WeaponData _weaponData;
+        private PlayerState _playerState;
 
         [Inject]
-        public void SetUp(IInputSystem inputSystem, BulletFactory bulletFactory)
+        public void SetUp(IInputSystem inputSystem, BulletFactory bulletFactory, PlayerState playerState)
         {
             _inputSystem = inputSystem;
             _bulletFactory = bulletFactory;
+            _playerState = playerState;
         }
 
         private void Awake()
@@ -28,10 +30,7 @@ namespace Fight
             var rigidBody = GetComponent<Rigidbody2D>();
             _rotationComponent = new RotationComponent(rigidBody);
             _audioComponent = new AudioComponent(GetComponent<AudioSource>());
-            _shootingComponent = new ShootingComponent(_bulletFactory, transform, _audioComponent);
-            var weapon = new Weapon(_weaponData);
-            weapon.Reload(true);
-            _shootingComponent.SetWeapon(weapon); //TODO: normal weapon cycling
+            _shootingComponent = new ShootingComponent(_bulletFactory, transform, _audioComponent, _playerState);
         }
 
         protected override void Update()
