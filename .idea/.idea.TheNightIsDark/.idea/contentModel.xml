@@ -532,13 +532,16 @@
             <e p="SpawnPointContainer.cs" t="Include" />
             <e p="SpawnStrategy.cs" t="Include" />
             <e p="State" t="Include">
+              <e p="EnemyBehaviour.cs" t="Include" />
               <e p="EnemyState.cs" t="Include" />
               <e p="FIghtState.cs" t="Include" />
               <e p="PlayerState.cs" t="Include" />
               <e p="SubStates" t="Include">
+                <e p="BulletState.cs" t="Include" />
                 <e p="HealthState.cs" t="Include" />
                 <e p="WeaponState.cs" t="Include" />
               </e>
+              <e p="WalkBehaviour.cs" t="Include" />
             </e>
             <e p="World" t="Include">
               <e p="Behaviour" t="Include">
