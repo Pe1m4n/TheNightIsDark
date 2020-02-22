@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27740ee356c4a43a69a4f89cc4afd13, type: 3}
   m_Name: KukarecuSound
   m_EditorClassIdentifier: 
-  _clip: {fileID: 0}
+  _clip: {fileID: 8300000, guid: 68cd6f1d9036d3943a45352b4ca820a9, type: 3}

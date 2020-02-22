@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27740ee356c4a43a69a4f89cc4afd13, type: 3}
   m_Name: MineExplosion
   m_EditorClassIdentifier: 
-  _clip: {fileID: 0}
+  _clip: {fileID: 8300000, guid: 9a9b87e60f632954ca4b8feab85338b1, type: 3}
