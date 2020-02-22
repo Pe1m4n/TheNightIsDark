@@ -8,7 +8,7 @@ using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace DefaultNamespace
+namespace Tools
 {
     public class ScriptableObjectCreator : OdinMenuEditorWindow
     {

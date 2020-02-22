@@ -446,6 +446,30 @@
           </e>
         </e>
         <e p="Source" t="Include">
+          <e p="Common" t="Include">
+            <e p="ExtendedMonoBehaviour.cs" t="Include" />
+            <e p="InputSystem" t="Include">
+              <e p="IInputSystem.cs" t="Include" />
+              <e p="UnityInputSystem.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Fight" t="Include">
+            <e p="Player" t="Include">
+              <e p="Player.cs" t="Include" />
+              <e p="RotationComponent.cs" t="Include" />
+              <e p="Shooting" t="Include">
+                <e p="Bullet.cs" t="Include" />
+                <e p="BulletData.cs" t="Include" />
+                <e p="BulletFactory.cs" t="Include" />
+                <e p="ShootingComponent.cs" t="Include" />
+                <e p="WeaponData.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Installers" t="Include">
+            <e p="FightSceneInstaller.cs" t="Include" />
+            <e p="ProjectInstaller.cs" t="Include" />
+          </e>
           <e p="Tools" t="Include">
             <e p="ScriptableObjectCreator.cs" t="Include" />
           </e>
