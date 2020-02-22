@@ -12,10 +12,13 @@ namespace Fight.State.SubStates
 
         private Vector2 _lastPosition;
         private Collider2D[] _hitColliders = new Collider2D[1];
+
+        private float _spawnTime;
         
         public BulletState(BulletData data)
         {
             Data = data;
+            _spawnTime = Time.time;
         }
 
         public void ResetPosition(Vector2 position)
@@ -25,6 +28,7 @@ namespace Fight.State.SubStates
 
         public EnemyState CheckHit(Vector2 position)
         {
+            
             var hitsCount = Physics2D.OverlapAreaNonAlloc(_lastPosition, position, _hitColliders);
 
             _lastPosition = position;
@@ -35,6 +39,11 @@ namespace Fight.State.SubStates
             }
 
             return _hitColliders[0].GetComponent<EnemyView>().State;
+        }
+
+        public bool IsOutdated()
+        {
+            return Time.time - _spawnTime >= 2;
         }
     }
 }

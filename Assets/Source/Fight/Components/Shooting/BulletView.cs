@@ -31,6 +31,10 @@ namespace Fight.Shooting
 
         protected override void Update()
         {
+            if (_bulletState.IsOutdated())
+            {
+                Destroy(gameObject);
+            }
             var hit = _bulletState.CheckHit(transform.position);
             if (hit == null)
             {

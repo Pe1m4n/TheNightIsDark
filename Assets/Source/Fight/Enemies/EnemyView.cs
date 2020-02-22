@@ -12,6 +12,7 @@ namespace Fight.Enemies
         public EnemyState State { get; private set; }
 
         private EnemyBehaviour _behaviour;
+        private RotationComponent _rotationComponent;
 
         public EnemyBehaviour Behaviour
         {
@@ -28,7 +29,9 @@ namespace Fight.Enemies
         public void SetUp(EnemyState enemyState)
         {
             State = enemyState;
-            Behaviour = new WalkBehaviour(GetComponent<Rigidbody2D>(), State);
+            var rb = GetComponent<Rigidbody2D>();
+            _rotationComponent = new RotationComponent(rb);
+            Behaviour = new WalkBehaviour(rb, State, _rotationComponent);
         }
 
         protected override void Update()

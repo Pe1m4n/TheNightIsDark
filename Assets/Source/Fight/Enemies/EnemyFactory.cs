@@ -29,6 +29,10 @@ namespace Fight.Enemies
                 spawnPoint.transform.position, spawnPoint.transform.rotation,
                 _enemyContainer, new List<object>(){enemyState});
 
+            var tmpPos = enemyView.transform.position;
+            tmpPos.z = 0;
+            enemyView.transform.position = tmpPos;
+
             return enemyView;
         }
     }
