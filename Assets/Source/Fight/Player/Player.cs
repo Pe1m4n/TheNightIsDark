@@ -13,13 +13,14 @@ namespace Fight
         private RotationComponent _rotationComponent;
         private ShootingComponent _shootingComponent;
         private AudioComponent _audioComponent;
+        private BulletFactory _bulletFactory;
         [SerializeField] private WeaponData _weaponData;
 
         [Inject]
         public void SetUp(IInputSystem inputSystem, BulletFactory bulletFactory)
         {
             _inputSystem = inputSystem;
-            _shootingComponent = new ShootingComponent(bulletFactory, transform);
+            _bulletFactory = bulletFactory;
         }
 
         private void Awake()
@@ -27,6 +28,10 @@ namespace Fight
             var rigidBody = GetComponent<Rigidbody2D>();
             _rotationComponent = new RotationComponent(rigidBody);
             _audioComponent = new AudioComponent(GetComponent<AudioSource>());
+            _shootingComponent = new ShootingComponent(_bulletFactory, transform, _audioComponent);
+            var weapon = new Weapon(_weaponData);
+            weapon.Reload(true);
+            _shootingComponent.SetWeapon(weapon); //TODO: normal weapon cycling
         }
 
         protected override void Update()
@@ -41,8 +46,7 @@ namespace Fight
 
         private void Shoot()
         {
-            _shootingComponent.Shoot(_weaponData);
-            _audioComponent.Play(_weaponData.ShootingSound);
+            _shootingComponent.Shoot();
         }
     }
 }
