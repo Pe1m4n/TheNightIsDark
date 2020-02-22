@@ -14,5 +14,6 @@ namespace Fight
 
         public HealthData HealthData => _healthData;
         public WeaponData DefaultWeapon => _defaultWeapon;
+        [OdinSerialize] public InventoryData DefaultInventory { get; set; }
     }
 }

@@ -12,6 +12,8 @@ namespace Fight.State
         public WeaponState CurrentWeapon { get; private set; }
         public HealthState HealthState { get; private set; }
         
+        public InventoryState InventoryState { get; set; }
+        
         public Vector2 Position { get; private set; }
         
         public PlayerState(PlayerData playerData)
@@ -21,6 +23,7 @@ namespace Fight.State
             Weapons.Add(playerData.DefaultWeapon.Name, weapon);
             CurrentWeapon = weapon;
             HealthState = new HealthState(playerData.HealthData);
+            InventoryState = new InventoryState(playerData.DefaultInventory);
         }
 
         public void SetPosition(Vector2 position)
