@@ -6,12 +6,13 @@ using Zenject;
 
 namespace Fight
 {
-    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
     public class Player : ExtendedMonoBehaviour
     {
         private IInputSystem _inputSystem;
         private RotationComponent _rotationComponent;
         private ShootingComponent _shootingComponent;
+        private AudioComponent _audioComponent;
         [SerializeField] private WeaponData _weaponData;
 
         [Inject]
@@ -25,6 +26,7 @@ namespace Fight
         {
             var rigidBody = GetComponent<Rigidbody2D>();
             _rotationComponent = new RotationComponent(rigidBody);
+            _audioComponent = new AudioComponent(GetComponent<AudioSource>());
         }
 
         protected override void Update()
@@ -40,6 +42,7 @@ namespace Fight
         private void Shoot()
         {
             _shootingComponent.Shoot(_weaponData);
+            _audioComponent.Play(_weaponData.ShootingSound);
         }
     }
 }
