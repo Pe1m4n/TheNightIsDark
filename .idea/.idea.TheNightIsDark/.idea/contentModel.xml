@@ -526,6 +526,7 @@
               <e p="SpawnPoint.cs" t="Include" />
             </e>
             <e p="Player" t="Include">
+              <e p="InventoryData.cs" t="Include" />
               <e p="LightFlashAnimation.cs" t="Include" />
               <e p="PlayerData.cs" t="Include" />
               <e p="PlayerView.cs" t="Include" />
@@ -536,6 +537,7 @@
               <e p="EnemyBehaviour.cs" t="Include" />
               <e p="EnemyState.cs" t="Include" />
               <e p="FIghtState.cs" t="Include" />
+              <e p="InventoryState.cs" t="Include" />
               <e p="PlayerState.cs" t="Include" />
               <e p="SubStates" t="Include">
                 <e p="BulletState.cs" t="Include" />

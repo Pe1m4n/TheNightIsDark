@@ -2,6 +2,7 @@
 
 namespace Common.AudioSystem
 {
+    
     [RequireComponent(typeof(AudioSource))]
     public class AudioComponent : MonoBehaviour
     {
