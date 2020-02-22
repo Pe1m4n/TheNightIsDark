@@ -30,19 +30,27 @@ namespace Fight.Enemies
         {
             State = enemyState;
             var rb = GetComponent<Rigidbody2D>();
+            
             _rotationComponent = new RotationComponent(rb);
             Behaviour = new WalkBehaviour(rb, State, _rotationComponent);
         }
 
+        private bool _attacking;
         protected override void Update()
         {
+            _rotationComponent.Update(State.Destination);
             Behaviour?.Update();
             if (State.HealthState.CurrentHealth <= 0)
             {
                 OnDeath();
             }
 
-            if (State.ShouldBeginAttacking(transform.position, 2))
+            if (_attacking)
+            {
+                return;
+            }
+            
+            if (State.ShouldBeginAttacking(transform.position, 0.6f))
             {
                 BeginAttacking(); //don't fire me if you see this, i'm in panic mode
             }

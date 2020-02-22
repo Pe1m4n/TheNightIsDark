@@ -18,11 +18,12 @@ namespace Fight.State
 
         public override void OnStart()
         {
-            _rigidbody2D.AddForce(_rotationComponent.UpVector * _state.Data.Speed, ForceMode2D.Impulse);
+            _rigidbody2D.velocity = _rotationComponent.UpVector * _state.Data.Speed;
         }
 
         public override void Update()
         {
+            _rigidbody2D.velocity = _rotationComponent.UpVector * _state.Data.Speed;
         }
 
         public override void OnFinish()
