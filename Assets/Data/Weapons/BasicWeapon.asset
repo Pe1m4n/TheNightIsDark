@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: BasicWeapon
   _reloadTime: 2
-  _bulletCapacity: 3
+  _bulletCapacity: 100
   _bulletData: {fileID: 11400000, guid: 8af3424338d536449aa733d9e98117fc, type: 2}
   _shootingSound: {fileID: 11400000, guid: bf5aad5be4ad92447a1edb6e68db4072, type: 2}
