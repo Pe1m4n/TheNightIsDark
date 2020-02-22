@@ -1934,7 +1934,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 2.16
   m_LightVolumeOpacity: 0
   m_ApplyToSortingLayers: 000000009b952cfa99d0f92f
   m_LightCookieSprite: {fileID: 0}
@@ -2753,7 +2753,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273750855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.030999899, y: -0.012299979, z: 0}
+  m_LocalPosition: {x: -0.030999899, y: -0.012299979, z: -0.18}
   m_LocalScale: {x: 0.47644168, y: 0.6790372, z: 4.8543687}
   m_Children: []
   m_Father: {fileID: 56304323}
@@ -3154,6 +3154,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UI_Shop: {fileID: 0}
   ShopButton: {fileID: 0}
+--- !u!114 &1619301458 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5486617447687379225, guid: 96b3ca5839a6f194795281661b95d156,
+    type: 3}
+  m_PrefabInstance: {fileID: 1939137263}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1640307477
 GameObject:
   m_ObjectHideFlags: 0
@@ -3439,6 +3451,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5be5fedc9ff4177a177237f6f21abc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1750528836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1094437355207083741, guid: 96b3ca5839a6f194795281661b95d156,
+    type: 3}
+  m_PrefabInstance: {fileID: 1939137263}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1852441793
@@ -4009,6 +4033,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5be5fedc9ff4177a177237f6f21abc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2040734188 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2649071869536981965, guid: 96b3ca5839a6f194795281661b95d156,
+    type: 3}
+  m_PrefabInstance: {fileID: 1939137263}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2040734189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2040734188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb403bd448c544ae807069f08fadfe27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _barrelCountText: {fileID: 1750528836}
+  _mineCountText: {fileID: 1619301458}
 --- !u!1 &2043429137
 GameObject:
   m_ObjectHideFlags: 0
@@ -4180,7 +4224,8 @@ MonoBehaviour:
   _spawnPointsContainer: {fileID: 244085688}
   _spawnStrategy: {fileID: 11400000, guid: 8db8b28786b9e4348a53f87ece5a3b6a, type: 2}
   _illuminationController: {fileID: 2043429138}
-  _defaultInventory: {fileID: 0}
+  _defaultInventory: {fileID: 11400000, guid: 6e28a0ec7c2d65b4dbca59daf3b40c47, type: 2}
+  _dayNightChangeData: {fileID: 0}
 --- !u!1 &2115881220
 GameObject:
   m_ObjectHideFlags: 0

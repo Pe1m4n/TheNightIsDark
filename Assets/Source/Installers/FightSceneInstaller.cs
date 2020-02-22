@@ -24,6 +24,7 @@ namespace Installers
         [SerializeField] private SpawnStrategy _spawnStrategy;
         [SerializeField] private IlluminationController _illuminationController;
         [SerializeField] private InventoryData _defaultInventory;
+        [SerializeField] private DayNightChangeData _dayNightChangeData;
         public override void InstallBindings()
         {
             base.InstallBindings();
@@ -45,6 +46,7 @@ namespace Installers
 
             Container.Bind<SpawnPointContainer>().FromInstance(_spawnPointsContainer).AsSingle();
             Container.Bind<SpawnStrategy>().FromInstance(_spawnStrategy).AsSingle();
+            Container.Bind<DayNightChangeData>().FromInstance(_dayNightChangeData).AsSingle();
         }
 
         private void BindPlayerComponents()
