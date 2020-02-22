@@ -9,7 +9,7 @@ namespace Fight.State
         public PlayerState(PlayerData playerData)
         {
             var weapon = new WeaponState(playerData.DefaultWeapon);
-            weapon.Reload();
+            weapon.Reload(true);
             Weapons.Add(playerData.DefaultWeapon.Name, weapon);
             CurrentWeapon = weapon;
             HealthState = new HealthState(playerData.HealthData);
