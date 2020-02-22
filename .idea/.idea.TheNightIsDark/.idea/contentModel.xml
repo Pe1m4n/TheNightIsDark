@@ -811,6 +811,7 @@
               <e p="PlayerData.cs" t="Include" />
               <e p="PlayerView.cs" t="Include" />
             </e>
+            <e p="SelfDestructionComponent.cs" t="Include" />
             <e p="SpawnPointContainer.cs" t="Include" />
             <e p="SpawnStrategy.cs" t="Include" />
             <e p="State" t="Include">
