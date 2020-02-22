@@ -43,7 +43,10 @@ namespace Fight.Shooting
 
             
             hit.HealthState.DealDamage(_bulletState.Data.AttackData.Attack);
-            Instantiate(_bulletState.Data.HitReaction, transform.position, transform.rotation);
+            if (_bulletState.Data.HitReaction != null)
+            {
+                Instantiate(_bulletState.Data.HitReaction, transform.position, transform.rotation);
+            }
             Destroy(gameObject);
         }
     }
