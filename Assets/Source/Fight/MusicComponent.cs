@@ -13,11 +13,13 @@ namespace Fight
         private AudioSource _source;
         private void Start()
         {
+            _source = GetComponent<AudioSource>();
             _dayMusic.Play(_source);
         }
         
         public void OnWorldStateChanged(WorldState state)
         {
+            _source.Stop();
             if (state == WorldState.Day)
             {
                 _dayMusic.Play(_source);

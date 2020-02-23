@@ -59,7 +59,7 @@ namespace Installers
             Container.Bind<MineData>().FromInstance(_mineData).AsSingle();
             Container.Bind<BarrelData>().FromInstance(_barrelData).AsSingle();
             Container.Bind<BuildingCursorHolder>().FromInstance(_cursorHolder).AsSingle();
-            Container.Bind<MusicComponent>().FromInstance(_music).AsSingle();
+            Container.BindInterfacesTo<MusicComponent>().FromInstance(_music).AsSingle();
         }
 
         private void BindSpawning()
