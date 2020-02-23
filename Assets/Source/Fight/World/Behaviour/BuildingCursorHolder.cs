@@ -22,7 +22,9 @@ namespace Fight
 
         private void Update()
         {
-            transform.position = _inputSystem.GetMousePosition();
+            var pos = _inputSystem.GetMousePosition();
+            pos.z = -1;
+            transform.position = pos;
             HandleBuildingColor();
         }
 

@@ -4777,7 +4777,7 @@ MonoBehaviour:
   _mineData: {fileID: 11400000, guid: 510feb74b99e6d340b89a5a8f7907f01, type: 2}
   _barrelData: {fileID: 11400000, guid: 9365631f3b2ff2246995309cc7c171c2, type: 2}
   _cursorHolder: {fileID: 8694679}
-  _music: {fileID: 0}
+  _music: {fileID: 1024665871}
 --- !u!1 &2115881220
 GameObject:
   m_ObjectHideFlags: 0

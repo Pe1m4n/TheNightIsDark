@@ -1,5 +1,6 @@
 ﻿using Common.InputSystem;
 using Fight.Gadgets;
+using Fight.State;
 using UnityEngine;
 
 namespace Fight
@@ -12,6 +13,7 @@ namespace Fight
         private readonly IInputSystem _inputSystem;
         private readonly BarrelData _barrelData;
         private readonly MineData _mineData;
+        private readonly FightState _fightState;
         private DayState _state;
 
         public enum DayState
@@ -34,7 +36,8 @@ namespace Fight
         }
 
         public DayBehaviour(BuildingCursorHolder cursorHolder, GadgetFactory<BarrelData, BarrelView> barrelFactory,
-            GadgetFactory<MineData, MineView> mineFactory, IInputSystem inputSystem, BarrelData barrelData, MineData mineData)
+            GadgetFactory<MineData, MineView> mineFactory, IInputSystem inputSystem, BarrelData barrelData, MineData mineData,
+            FightState fightState)
         {
             _cursorHolder = cursorHolder;
             _barrelFactory = barrelFactory;
@@ -42,6 +45,7 @@ namespace Fight
             _inputSystem = inputSystem;
             _barrelData = barrelData;
             _mineData = mineData;
+            _fightState = fightState;
         }
 
         public override void Start()
@@ -78,10 +82,19 @@ namespace Fight
             switch (state)
             {
                 case DayState.BuildingBarrel:
-                    _barrelFactory.Create(_barrelData, _inputSystem.GetMousePosition());
+                    if (_fightState.PlayerState.InventoryState.BarrelCount > 0)
+                    {
+                        _barrelFactory.Create(_barrelData, _inputSystem.GetMousePosition());
+                        _fightState.PlayerState.InventoryState.BarrelCount--;
+                    }
                     break;
                 case DayState.BuildingMine:
-                    _mineFactory.Create(_mineData, _inputSystem.GetMousePosition());
+                    if (_fightState.PlayerState.InventoryState.MineCount > 0)
+                    {
+                        _mineFactory.Create(_mineData, _inputSystem.GetMousePosition());
+                        _fightState.PlayerState.InventoryState.MineCount--;
+                    }
+
                     break;
             }
 

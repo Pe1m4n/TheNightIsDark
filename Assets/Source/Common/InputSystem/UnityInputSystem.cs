@@ -13,7 +13,9 @@ namespace Common.InputSystem
         
         public Vector3 GetMousePosition()
         {
-            return _camera.ScreenToWorldPoint(Input.mousePosition);
+            var pos = _camera.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = -1f;
+            return pos;
         }
 
         public bool GetKeyDown(KeyCode keyCode)
