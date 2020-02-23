@@ -5,7 +5,7 @@ namespace Fight.State
     public class HealthState
     {
         public HealthData Data { get; }
-        public int CurrentHealth { get; private set; }
+        public int CurrentHealth { get; set; }
         
         public HealthState(HealthData healthData)
         {

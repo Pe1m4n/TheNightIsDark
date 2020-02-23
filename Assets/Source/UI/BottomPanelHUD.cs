@@ -1,5 +1,6 @@
 ﻿using System;
 using Fight.State;
+using Fight.World;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ using Zenject;
 
 namespace UI
 {
-    public class BottomPanelHUD : MonoBehaviour
+    public class BottomPanelHUD : MonoBehaviour, IWorldStateListener
     {
         public Text _barrelCountText;
         public Text _mineCountText;
@@ -27,6 +28,11 @@ namespace UI
         private void OnDestroy()
         {
             _disposable?.Dispose();
+        }
+
+        public void OnWorldStateChanged(WorldState state)
+        {
+            gameObject.SetActive(state == WorldState.Day);
         }
     }
 }

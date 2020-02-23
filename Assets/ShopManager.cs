@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Fight.World;
 using UnityEngine;
 
-public class ShopManager : MonoBehaviour
+public class ShopManager : MonoBehaviour, IWorldStateListener
 {
     public static bool ShopIsOpened = false;
     public GameObject UI_Shop;
@@ -30,5 +31,15 @@ public class ShopManager : MonoBehaviour
     {
         UI_Shop.SetActive(false);
         ShopButton.SetActive(true);
+    }
+
+    public void OnWorldStateChanged(WorldState state)
+    {
+        var active = state == WorldState.Day;
+        ShopButton.SetActive(active);
+        if (state == WorldState.Night)
+        {
+            UI_Shop.SetActive(false);
+        }
     }
 }

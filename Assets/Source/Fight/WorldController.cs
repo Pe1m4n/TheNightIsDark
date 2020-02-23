@@ -31,10 +31,15 @@ namespace Fight
 
                 foreach (var listener in _listeners)
                 {
+                    if (listener == null)
+                    {
+                        continue;
+                    }
                     listener.OnWorldStateChanged(value);
                 }
 
                 _worldState = value;
+                _state.WorldState = value;
             }
         }
 
@@ -73,6 +78,14 @@ namespace Fight
 
         public void Tick()
         {
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                foreach (var enemy in _state.Enemies)
+                {
+                    enemy.HealthState.DealDamage(5000);
+                }
+            }
+            
             if (_disableSimulation)
             {
                 return;
