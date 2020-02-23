@@ -51,7 +51,7 @@ MonoBehaviour:
       Data: 1
     - Name: StopRadius
       Entry: 4
-      Data: 0.5
+      Data: 0.2
     - Name: Reward
       Entry: 3
       Data: 2
