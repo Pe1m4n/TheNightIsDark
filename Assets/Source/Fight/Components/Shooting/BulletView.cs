@@ -9,6 +9,7 @@ namespace Fight.Shooting
     public class BulletView : ExtendedMonoBehaviour
     {
         private Rigidbody2D _rigidbody2D;
+        public Vector2 Position => _rigidbody2D.position;
         private BulletState _bulletState;
 
         [Inject]
@@ -42,10 +43,10 @@ namespace Fight.Shooting
             }
 
             
-            hit.HealthState.DealDamage(_bulletState.Data.AttackData.Attack);
+            hit.DealDamage(_bulletState.Data.AttackData.Attack);
             if (_bulletState.Data.HitReaction != null)
             {
-                Instantiate(_bulletState.Data.HitReaction, transform.position, transform.rotation);
+                Instantiate(_bulletState.Data.HitReaction, _bulletState.HitPosition, transform.rotation);
             }
             Destroy(gameObject);
         }

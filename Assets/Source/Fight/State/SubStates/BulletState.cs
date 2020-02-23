@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Fight.Enemies;
+using Fight.Health;
 using Fight.Shooting;
 using UnityEngine;
 
@@ -15,6 +16,8 @@ namespace Fight.State.SubStates
 
         private float _spawnTime;
         
+        public Vector2 HitPosition { get; set; }
+        
         public BulletState(BulletData data)
         {
             Data = data;
@@ -26,7 +29,7 @@ namespace Fight.State.SubStates
             _lastPosition = position;
         }
 
-        public EnemyState CheckHit(Vector2 position)
+        public HealthState CheckHit(Vector2 position)
         {
             var hitsCount = Physics2D.OverlapAreaNonAlloc(_lastPosition, position, _hitColliders);
 
@@ -37,12 +40,14 @@ namespace Fight.State.SubStates
                 return null;
             }
 
-            var enemyView = _hitColliders[0].GetComponent<EnemyView>();
+            var enemyView = _hitColliders[0].GetComponent<IBulletTarget>();
             if (enemyView == null)
             {
                 return null;
             }
-            return enemyView.State;
+
+            HitPosition = _hitColliders[0].transform.position;
+            return enemyView.HealthState;
         }
 
         public bool IsOutdated()
