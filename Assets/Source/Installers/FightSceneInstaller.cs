@@ -10,6 +10,7 @@ using Fight.State;
 using Fight.World;
 using Sirenix.Serialization;
 using UI;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using Zenject;
 
@@ -38,7 +39,8 @@ namespace Installers
         [SerializeField] private BarrelData _barrelData;
         [SerializeField] private BuildingCursorHolder _cursorHolder;
         [SerializeField] private MusicComponent _music;
-            
+        [SerializeField] private DayTimer _dayTimer;
+
         public override void InstallBindings()
         {
             base.InstallBindings();
@@ -60,6 +62,7 @@ namespace Installers
             Container.Bind<BarrelData>().FromInstance(_barrelData).AsSingle();
             Container.Bind<BuildingCursorHolder>().FromInstance(_cursorHolder).AsSingle();
             Container.BindInterfacesTo<MusicComponent>().FromInstance(_music).AsSingle();
+            Container.BindInterfacesAndSelfTo<DayTimer>().FromInstance(_dayTimer).AsSingle();
         }
 
         private void BindSpawning()

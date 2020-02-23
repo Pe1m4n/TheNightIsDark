@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using DG.Tweening;
 using Fight.Enemies;
 using Fight.State;
 using Fight.World;
 using UI;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using Zenject;
 
@@ -51,7 +55,7 @@ namespace Fight
         private readonly DayBehaviour _dayBehaviour;
         private NightBehaviour _nightBehaviour;
         private WorldBehaviourStrategy _currentBehaviourStrategy;
-        private bool _disableSimulation;
+        private bool DisaleSimulation { get; set; }
 
         private WorldBehaviourStrategy CurrentBehaviourStrategy
         {
@@ -66,7 +70,7 @@ namespace Fight
         
         public WorldController(IlluminationController illuminationController, NightBehaviour nightBehaviour,
          DayNightChangeData dayNightData, IEnumerable<IWorldStateListener> listeners, FightState state,
-         TextComponent textComponent, DayBehaviour dayBehaviour)
+         TextComponent textComponent, DayBehaviour dayBehaviour, DayTimer dayTimer)
         {
             _illuminationController = illuminationController;
             _dayNightData = dayNightData;
@@ -76,6 +80,7 @@ namespace Fight
             _dayBehaviour = dayBehaviour;
             CurrentBehaviourStrategy = nightBehaviour;
             _nightBehaviour = nightBehaviour;
+            dayTimer.SetUp(this);
         }
 
         public void Tick()
@@ -88,7 +93,7 @@ namespace Fight
                 }
             }
             
-            if (_disableSimulation)
+            if (DisaleSimulation)
             {
                 return;
             }
@@ -113,12 +118,16 @@ namespace Fight
             CurrentBehaviourStrategy?.Update();
         }
 
-        private void GameOver()
+        private async void GameOver()
         {
             _textComponent.ShowText("Game over. Try again!");
             
             _state.Reset();
             _state.NightId++;
+            Timer = _dayNightData.NightSeconds;
+            DisaleSimulation = true;
+            await Task.Delay(TimeSpan.FromSeconds(3f));
+            DisaleSimulation = false;
         }
     }
 }
