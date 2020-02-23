@@ -37,7 +37,8 @@ namespace Installers
         [SerializeField] private MineData _mineData;
         [SerializeField] private BarrelData _barrelData;
         [SerializeField] private BuildingCursorHolder _cursorHolder;
-
+        [SerializeField] private MusicComponent _music;
+            
         public override void InstallBindings()
         {
             base.InstallBindings();
@@ -58,6 +59,7 @@ namespace Installers
             Container.Bind<MineData>().FromInstance(_mineData).AsSingle();
             Container.Bind<BarrelData>().FromInstance(_barrelData).AsSingle();
             Container.Bind<BuildingCursorHolder>().FromInstance(_cursorHolder).AsSingle();
+            Container.Bind<MusicComponent>().FromInstance(_music).AsSingle();
         }
 
         private void BindSpawning()
