@@ -26,13 +26,13 @@ MonoBehaviour:
       Data: 0|Fight.Health.AttackData, Assembly-CSharp
     - Name: _attack
       Entry: 3
-      Data: 0
+      Data: 25
     - Name: 
       Entry: 8
       Data: 
     - Name: TriggerRadius
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: DamageRadius
       Entry: 4
-      Data: 0
+      Data: 2

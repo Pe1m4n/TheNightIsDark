@@ -48,10 +48,10 @@ MonoBehaviour:
       Data: 0
     - Name: Speed
       Entry: 4
-      Data: 0.5
+      Data: 0.3
     - Name: StopRadius
       Entry: 4
-      Data: 0.2
+      Data: 0.4
     - Name: Reward
       Entry: 3
       Data: 4
