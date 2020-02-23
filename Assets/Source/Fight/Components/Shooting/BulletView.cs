@@ -41,7 +41,12 @@ namespace Fight.Shooting
                 return;
             }
 
+            
             hit.HealthState.DealDamage(_bulletState.Data.AttackData.Attack);
+            if (_bulletState.Data.HitReaction != null)
+            {
+                Instantiate(_bulletState.Data.HitReaction, transform.position, transform.rotation);
+            }
             Destroy(gameObject);
         }
     }

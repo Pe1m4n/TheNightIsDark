@@ -57,7 +57,7 @@ namespace Fight.Enemies
                 return;
             }
             
-            if (State.ShouldBeginAttacking(transform.position, 0.6f))
+            if (State.ShouldBeginAttacking(transform.position, State.Data.StopRadius))
             {
                 BeginAttacking(); //don't fire me if you see this, i'm in panic mode
             }

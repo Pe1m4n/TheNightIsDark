@@ -811,6 +811,7 @@
               <e p="PlayerData.cs" t="Include" />
               <e p="PlayerView.cs" t="Include" />
             </e>
+            <e p="SelfDestructionComponent.cs" t="Include" />
             <e p="SpawnPointContainer.cs" t="Include" />
             <e p="SpawnStrategy.cs" t="Include" />
             <e p="State" t="Include">
@@ -832,8 +833,11 @@
                 <e p="NightBehaviour.cs" t="Include" />
                 <e p="WorldBehaviourStrategy.cs" t="Include" />
               </e>
+              <e p="DayNightChangeData.cs" t="Include" />
               <e p="IlluminationController.cs" t="Include" />
+              <e p="IWorldStateListener.cs" t="Include" />
               <e p="WorldState.cs" t="Include" />
+              <e p="WorldStateChanger.cs" t="Include" />
             </e>
             <e p="WorldController.cs" t="Include" />
           </e>
@@ -842,13 +846,16 @@
             <e p="ProjectInstaller.cs" t="Include" />
           </e>
           <e p="Tools" t="Include">
+            <e p="Editor.asmdef" t="Include" />
             <e p="ScriptableObjectCreator.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="BottomPanelHUD.cs" t="Include" />
             <e p="HUD.cs" t="Include" />
           </e>
         </e>
       </e>
+      <e p="Editor.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
       <e p="Sirenix.OdinInspector.CompatibilityLayer.csproj" t="IncludeRecursive" />
