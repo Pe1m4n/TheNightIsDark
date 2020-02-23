@@ -56,5 +56,11 @@ namespace Fight.Shooting
             
             Reloading = false;
         }
+
+        public void Reset()
+        {
+            AmmoLoaded = 0;
+            Reload(true);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using Fight.Enemies;
 using Fight.State;
 using Fight.World;
+using UI;
 using UnityEngine;
 using Zenject;
 
@@ -41,8 +42,10 @@ namespace Fight
         private readonly DayNightChangeData _dayNightData;
         private readonly IEnumerable<IWorldStateListener> _listeners;
         private readonly FightState _state;
+        private readonly TextComponent _textComponent;
         private NightBehaviour _nightBehaviour;
         private WorldBehaviourStrategy _currentBehaviourStrategy;
+        private bool _disableSimulation;
 
         private WorldBehaviourStrategy CurrentBehaviourStrategy
         {
@@ -56,20 +59,32 @@ namespace Fight
         }
         
         public WorldController(IlluminationController illuminationController, NightBehaviour nightBehaviour,
-         DayNightChangeData dayNightData, IEnumerable<IWorldStateListener> listeners, FightState state)
+         DayNightChangeData dayNightData, IEnumerable<IWorldStateListener> listeners, FightState state,
+         TextComponent textComponent)
         {
             _illuminationController = illuminationController;
             _dayNightData = dayNightData;
             _listeners = listeners;
             _state = state;
+            _textComponent = textComponent;
             CurrentBehaviourStrategy = nightBehaviour;
             _nightBehaviour = nightBehaviour;
         }
 
         public void Tick()
         {
+            if (_disableSimulation)
+            {
+                return;
+            }
+            
+            if (_state.PlayerState.HealthState.CurrentHealth <= 0)
+            {
+                GameOver();
+                return;
+            }
             Timer -= Time.deltaTime;
-            if (Timer <= 0 && _state.Enemies.Count == EnemyView.EnemiesDead)
+            if (Timer <= 0 && _state.Enemies.Count <= 0)
             {
                 if (WorldState == WorldState.Day)
                 {
@@ -81,6 +96,14 @@ namespace Fight
                 }
             }
             CurrentBehaviourStrategy?.Update();
+        }
+
+        private void GameOver()
+        {
+            _textComponent.ShowText("Game over. Try again!");
+            
+            _state.Reset();
+            _state.NightId++;
         }
     }
 }

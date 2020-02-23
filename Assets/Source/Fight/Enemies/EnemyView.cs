@@ -10,7 +10,6 @@ namespace Fight.Enemies
     [RequireComponent(typeof(AudioSource), typeof(Rigidbody2D), typeof(Collider2D))]
     public class EnemyView : ExtendedMonoBehaviour
     {
-        public static int EnemiesDead = 0; //20h coding in a row turns into this
         public EnemyState State { get; private set; }
 
         private AudioSource _audioSource;
@@ -18,6 +17,7 @@ namespace Fight.Enemies
         private RotationComponent _rotationComponent;
         private AudioTrack _deathSound;
         private PlayerState _playerState;
+        private FightState _fightState;
 
         public EnemyBehaviour Behaviour
         {
@@ -31,7 +31,7 @@ namespace Fight.Enemies
         }
         
         [Inject]
-        public void SetUp(EnemyState enemyState, PlayerState playerState)
+        public void SetUp(EnemyState enemyState, PlayerState playerState, FightState fightState)
         {
             State = enemyState;
             var rb = GetComponent<Rigidbody2D>();
@@ -41,6 +41,7 @@ namespace Fight.Enemies
             Behaviour = new WalkBehaviour(rb, State, _rotationComponent);
             _audioSource = GetComponent<AudioSource>();
             _playerState = playerState;
+            _fightState = fightState;
         }
 
         private bool _attacking;
@@ -72,10 +73,15 @@ namespace Fight.Enemies
             _animationController.SetBool("InAttack", true);
         }
 
+        public void Attack()
+        {
+            _playerState.HealthState.DealDamage(State.AttackData.Attack);
+        }
+
         private void OnDeath()
         {
             _playerState.InventoryState.Dollars += State.Data.Reward;
-            EnemiesDead++;
+            _fightState.Enemies.Remove(State);
             Destroy(gameObject);
         }
     }
