@@ -21,6 +21,7 @@ namespace Fight.Shooting
             var state = new BulletState(data);
             var bullet = _container.InstantiatePrefabForComponent<BulletView>(data.BulletPrefab, position, rotation, _transform, new List<object>(){state});
             bullet.SetForce(bullet.transform.up * data.Speed);
+            bullet.SetTransform(bullet.transform);
             return bullet;
         }
     }

@@ -1,5 +1,4 @@
 ﻿using Fight.Enemies;
-using Fight.Health;
 using Fight.State;
 using UnityEngine;
 using Zenject;
@@ -32,5 +31,14 @@ namespace Fight.Gadgets
         }
 
         public HealthState HealthState { get; set; }
+        protected override float GetRadius()
+        {
+            return Data.DamageRadius;
+        }
+
+        protected override int GetDamage()
+        {
+            return Data.AttackData.Attack;
+        }
     } 
 }

@@ -816,6 +816,7 @@
               <e p="MineData.cs" t="Include" />
               <e p="MineView.cs" t="Include" />
             </e>
+            <e p="ManualDestructComponent.cs" t="Include" />
             <e p="MusicComponent.cs" t="Include" />
             <e p="Player" t="Include">
               <e p="InventoryData.cs" t="Include" />
