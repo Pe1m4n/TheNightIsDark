@@ -44,12 +44,19 @@ namespace Fight.World
         private void SetNight()
         {
             _fightState.NightId++;
-            float intencity = 1f;
-            DOTween.To(() => intencity, (v) =>
+            if (_fightState.NightId != 1)
             {
-                intencity = v;
-                _illuminationController.SetIntencity(intencity);
-            }, 0f, 3f).SetEase(Ease.InSine);
+                float intencity = 1f;
+                DOTween.To(() => intencity, (v) =>
+                {
+                    intencity = v;
+                    _illuminationController.SetIntencity(intencity);
+                }, 0f, 3f).SetEase(Ease.InSine);
+            }
+            else
+            {
+                _illuminationController.SetIntencity(0f);
+            }
             _textComponent.ShowText($"Night #{_fightState.NightId}");
         }
     }
