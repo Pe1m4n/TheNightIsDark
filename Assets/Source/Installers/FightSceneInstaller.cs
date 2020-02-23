@@ -7,6 +7,7 @@ using Fight.Shooting;
 using Fight.State;
 using Fight.World;
 using Sirenix.Serialization;
+using UI;
 using UnityEngine;
 using Zenject;
 
@@ -25,6 +26,8 @@ namespace Installers
         [SerializeField] private IlluminationController _illuminationController;
         [SerializeField] private InventoryData _defaultInventory;
         [SerializeField] private DayNightChangeData _dayNightChangeData;
+        [SerializeField] private TextComponent _textComponent;
+
         public override void InstallBindings()
         {
             base.InstallBindings();
@@ -37,6 +40,8 @@ namespace Installers
             Container.BindInterfacesAndSelfTo<ReactiveStateHolder>().AsSingle().NonLazy();
             Container.Bind<IObservable<FightState>>().FromResolveGetter<ReactiveStateHolder>(sh => sh.ObservableState)
                 .AsSingle();
+            Container.BindInterfacesAndSelfTo<WorldStateChanger>().AsSingle().NonLazy();
+            Container.Bind<TextComponent>().FromInstance(_textComponent).AsSingle();
         }
 
         private void BindSpawning()

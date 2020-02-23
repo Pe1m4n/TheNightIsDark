@@ -852,6 +852,7 @@
           <e p="UI" t="Include">
             <e p="BottomPanelHUD.cs" t="Include" />
             <e p="HUD.cs" t="Include" />
+            <e p="TextComponent.cs" t="Include" />
           </e>
         </e>
       </e>

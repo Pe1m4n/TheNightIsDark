@@ -30,7 +30,7 @@ MonoBehaviour:
       Data: 0|Fight.Health.HealthData, Assembly-CSharp
     - Name: _totalHealth
       Entry: 3
-      Data: 10
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -39,7 +39,7 @@ MonoBehaviour:
       Data: 1|Fight.Health.AttackData, Assembly-CSharp
     - Name: _attack
       Entry: 3
-      Data: 10
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -49,3 +49,9 @@ MonoBehaviour:
     - Name: Speed
       Entry: 4
       Data: 1
+    - Name: StopRadius
+      Entry: 4
+      Data: 0.5
+    - Name: Reward
+      Entry: 3
+      Data: 2

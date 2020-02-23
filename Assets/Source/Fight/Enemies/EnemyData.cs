@@ -13,5 +13,6 @@ namespace Fight.Enemies
         [OdinSerialize] public EnemyView EnemyPrefab { get; set; }
         [OdinSerialize] public float Speed { get; set; }
         [OdinSerialize] public float StopRadius { get; set; }
+        [OdinSerialize] public int Reward { get; set; }
     }
 }

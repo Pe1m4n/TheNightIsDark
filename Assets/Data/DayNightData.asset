@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: DaySeconds
       Entry: 4
-      Data: 30
+      Data: 15
     - Name: NightSeconds
       Entry: 4
-      Data: 80
+      Data: 60
