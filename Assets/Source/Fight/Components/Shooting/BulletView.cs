@@ -11,6 +11,7 @@ namespace Fight.Shooting
         private Rigidbody2D _rigidbody2D;
         public Vector2 Position => _rigidbody2D.position;
         private BulletState _bulletState;
+        private Transform _bulletTransform;
 
         [Inject]
         public void SetUp(BulletState bulletState)
@@ -46,9 +47,16 @@ namespace Fight.Shooting
             hit.DealDamage(_bulletState.Data.AttackData.Attack);
             if (_bulletState.Data.HitReaction != null)
             {
-                Instantiate(_bulletState.Data.HitReaction, _bulletState.HitPosition, transform.rotation);
+                var rot = _bulletTransform.rotation.eulerAngles;
+                var direction = new Vector2(rot.x, rot.y);
+                Instantiate(_bulletState.Data.HitReaction, _bulletState.HitPosition + direction.normalized, transform.rotation);
             }
             Destroy(gameObject);
+        }
+
+        public void SetTransform(Transform bulletTransform)
+        {
+            _bulletTransform = bulletTransform;
         }
     }
 }
