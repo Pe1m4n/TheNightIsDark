@@ -64,5 +64,6 @@ namespace Fight
             _nextSpawn = Time.time + spawnDelay;
             _spawned++;
         }
+        
     }
 }
