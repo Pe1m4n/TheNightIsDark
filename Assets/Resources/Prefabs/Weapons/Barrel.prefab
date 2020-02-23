@@ -122,20 +122,20 @@ MonoBehaviour:
   m_LightType: 3
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.57
-  m_Color: {r: 0.9811321, g: 0.6278456, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.7987742, b: 0.28627455, a: 1}
   m_Intensity: 0
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 0000000099d0f92f
+  m_ApplyToSortingLayers: 0000000099d0f92f9b952cfa
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_ShadowIntensity: 0
+  m_ShadowIntensity: 1
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 0.18
+  m_PointLightInnerRadius: 10
+  m_PointLightOuterRadius: 20
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2934135d62f44087af47da1029eb076d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lightDuration: 0.075
-  _intencity: 0.09
+  _lightDuration: 0.5
+  _intencity: 1.5
 --- !u!82 &-1264443236721523218
 AudioSource:
   m_ObjectHideFlags: 0
