@@ -12,6 +12,7 @@ namespace Fight
         private readonly SpawnPointContainer _spawnPointContainer;
         private readonly DayNightChangeData _dayNightData;
         private readonly FightState _fightState;
+        private int _spawned;
 
         private float _nextSpawn;
         
@@ -33,11 +34,17 @@ namespace Fight
         public override void Finish()
         {
             _nextSpawn = 0;
+            _spawned = 0;
         }
 
         public override void Update()
         {
-            if (Time.time >= _nextSpawn)
+            if (!_spawnStrategy.spawnData.ContainsKey(_fightState.NightId))
+            {
+                return;
+            }
+            
+            if (Time.time >= _nextSpawn && _spawned < _spawnStrategy.spawnData[_fightState.NightId].enemiesCount)
             {
                 Spawn();
             }
@@ -55,6 +62,7 @@ namespace Fight
             var unitData = _spawnStrategy.GetUnitToSpawn();
             _enemyFactory.Create(unitData, _spawnPointContainer.GetRandomSpawnPoint());
             _nextSpawn = Time.time + spawnDelay;
+            _spawned++;
         }
     }
 }

@@ -39,7 +39,7 @@ namespace Fight.Gadgets
                 var enemy = hit.GetComponent<EnemyView>();
                 if (enemy == null)
                 {
-                    return;
+                    continue;
                 }
                 unitsToDamage.Add(enemy);
             }
