@@ -23,7 +23,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: AmmoCount
       Entry: 3
-      Data: 20
+      Data: 50
     - Name: BarrelCount
       Entry: 3
       Data: 2

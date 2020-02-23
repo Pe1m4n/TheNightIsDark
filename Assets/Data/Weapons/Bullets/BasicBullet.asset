@@ -16,6 +16,6 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 8689540231259598940, guid: 6f3da0fe6d004594493d23c98cce749a,
     type: 3}
   _attackData:
-    _attack: 1
+    _attack: 5
   _hitReaction: {fileID: 3050623058571955633, guid: b28be998e255f4344828336c785a7291,
     type: 3}
