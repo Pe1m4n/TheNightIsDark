@@ -8,7 +8,7 @@ using Zenject;
 namespace Fight.Enemies
 {
     [RequireComponent(typeof(AudioSource), typeof(Rigidbody2D), typeof(Collider2D))]
-    public class EnemyView : ExtendedMonoBehaviour
+    public class EnemyView : ExtendedMonoBehaviour, IBulletTarget
     {
         public EnemyState State { get; private set; }
 
@@ -46,6 +46,7 @@ namespace Fight.Enemies
 
         private bool _attacking;
         private Animator _animationController;
+        private HealthData _healthData;
 
         protected override void Update()
         {
@@ -84,5 +85,7 @@ namespace Fight.Enemies
             _fightState.Enemies.Remove(State);
             Destroy(gameObject);
         }
+
+        public HealthState HealthState => State.HealthState;
     }
 }
