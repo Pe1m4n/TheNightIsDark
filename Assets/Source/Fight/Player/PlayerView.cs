@@ -2,13 +2,14 @@
 using Common.InputSystem;
 using Fight.Shooting;
 using Fight.State;
+using Fight.World;
 using UnityEngine;
 using Zenject;
 
 namespace Fight
 {
     [RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
-    public class PlayerView : ExtendedMonoBehaviour
+    public class PlayerView : ExtendedMonoBehaviour, IWorldStateListener
     {
         private IInputSystem _inputSystem;
         private RotationComponent _rotationComponent;
@@ -17,14 +18,16 @@ namespace Fight
         private BulletFactory _bulletFactory;
         private PlayerState _playerState;
         [SerializeField] private LightFlashAnimation _flashAnimation;
+        private FightState _state;
 
         [Inject]
-        public void SetUp(IInputSystem inputSystem, BulletFactory bulletFactory, PlayerState playerState)
+        public void SetUp(IInputSystem inputSystem, BulletFactory bulletFactory, PlayerState playerState, FightState state)
         {
             _inputSystem = inputSystem;
             _bulletFactory = bulletFactory;
             _playerState = playerState;
             _playerState.SetPosition(transform.position);
+            _state = state;
         }
 
         private void Awake()
@@ -39,7 +42,7 @@ namespace Fight
         {
             _rotationComponent.Update(_inputSystem.GetMousePosition());
 
-            if (_inputSystem.GetKeyDown(KeyCode.Mouse0))
+            if (_inputSystem.GetKeyDown(KeyCode.Mouse0) && _state.WorldState == WorldState.Night)
             {
                 Shoot();
             }
@@ -48,6 +51,11 @@ namespace Fight
         private void Shoot()
         {
             _shootingComponent.Shoot();
+        }
+
+        public void OnWorldStateChanged(WorldState state)
+        {
+            gameObject.SetActive(state == WorldState.Night);
         }
     }
 }

@@ -847,6 +847,8 @@
             <e p="FightSceneInstaller.cs" t="Include" />
             <e p="ProjectInstaller.cs" t="Include" />
           </e>
+          <e p="ItemData.cs" t="Include" />
+          <e p="ShopData.cs" t="Include" />
           <e p="Tools" t="Include">
             <e p="Editor.asmdef" t="Include" />
             <e p="ScriptableObjectCreator.cs" t="Include" />
@@ -854,6 +856,7 @@
           <e p="UI" t="Include">
             <e p="BottomPanelHUD.cs" t="Include" />
             <e p="HUD.cs" t="Include" />
+            <e p="Shop.cs" t="Include" />
             <e p="TextComponent.cs" t="Include" />
           </e>
         </e>

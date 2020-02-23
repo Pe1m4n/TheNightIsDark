@@ -1,5 +1,6 @@
 ﻿using System;
 using Common.InputSystem;
+using DefaultNamespace;
 using Fight;
 using Fight.Enemies;
 using Fight.Health;
@@ -27,6 +28,9 @@ namespace Installers
         [SerializeField] private InventoryData _defaultInventory;
         [SerializeField] private DayNightChangeData _dayNightChangeData;
         [SerializeField] private TextComponent _textComponent;
+        [SerializeField] private ShopManager _shopManager;
+        [SerializeField] private BottomPanelHUD _bottomHud;
+        [SerializeField] private ShopData _shopData;
 
         public override void InstallBindings()
         {
@@ -36,12 +40,15 @@ namespace Installers
             BindPlayerComponents();
             BindSpawning();
 
-            Container.Bind<PlayerView>().FromInstance(playerView).AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerView>().FromInstance(playerView).AsSingle();
             Container.BindInterfacesAndSelfTo<ReactiveStateHolder>().AsSingle().NonLazy();
             Container.Bind<IObservable<FightState>>().FromResolveGetter<ReactiveStateHolder>(sh => sh.ObservableState)
                 .AsSingle();
             Container.BindInterfacesAndSelfTo<WorldStateChanger>().AsSingle().NonLazy();
             Container.Bind<TextComponent>().FromInstance(_textComponent).AsSingle();
+            Container.BindInterfacesTo<ShopManager>().FromInstance(_shopManager).AsSingle();
+            Container.BindInterfacesTo<BottomPanelHUD>().FromInstance(_bottomHud).AsSingle();
+            Container.Bind<ShopData>().FromInstance(_shopData).AsSingle();
         }
 
         private void BindSpawning()

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Fight.World;
 
 namespace Fight.State
 {
@@ -13,6 +14,8 @@ namespace Fight.State
         public List<EnemyState> Enemies { get; } = new List<EnemyState>();
         
         public int NightId { get; set; }
+        
+        public WorldState WorldState { get; set; }
 
         public void Reset()
         {
