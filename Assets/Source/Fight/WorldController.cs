@@ -6,6 +6,7 @@ using Fight.Enemies;
 using Fight.State;
 using Fight.World;
 using UI;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using Zenject;
 
@@ -69,7 +70,7 @@ namespace Fight
         
         public WorldController(IlluminationController illuminationController, NightBehaviour nightBehaviour,
          DayNightChangeData dayNightData, IEnumerable<IWorldStateListener> listeners, FightState state,
-         TextComponent textComponent, DayBehaviour dayBehaviour)
+         TextComponent textComponent, DayBehaviour dayBehaviour, DayTimer dayTimer)
         {
             _illuminationController = illuminationController;
             _dayNightData = dayNightData;
@@ -79,6 +80,7 @@ namespace Fight
             _dayBehaviour = dayBehaviour;
             CurrentBehaviourStrategy = nightBehaviour;
             _nightBehaviour = nightBehaviour;
+            dayTimer.SetUp(this);
         }
 
         public void Tick()
