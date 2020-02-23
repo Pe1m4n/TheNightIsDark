@@ -55,6 +55,7 @@ namespace Fight.Enemies
             if (State.HealthState.CurrentHealth <= 0)
             {
                 OnDeath();
+                return;
             }
 
             if (_attacking)
