@@ -26,8 +26,10 @@ namespace Fight.Shooting
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
+        private Vector2 _direction;
         public void SetForce(Vector3 direction)
         {
+            _direction = direction;
             _rigidbody2D.AddForce(direction * _bulletState.Data.Speed, ForceMode2D.Impulse);
         }
 
@@ -47,9 +49,7 @@ namespace Fight.Shooting
             hit.DealDamage(_bulletState.Data.AttackData.Attack);
             if (_bulletState.Data.HitReaction != null)
             {
-                var rot = _bulletTransform.rotation.eulerAngles;
-                var direction = new Vector2(rot.x, rot.y);
-                Instantiate(_bulletState.Data.HitReaction, _bulletState.HitPosition + direction.normalized, transform.rotation);
+                Instantiate(_bulletState.Data.HitReaction, _bulletState.HitPosition - (_direction.normalized / 5), transform.rotation);
             }
             Destroy(gameObject);
         }
