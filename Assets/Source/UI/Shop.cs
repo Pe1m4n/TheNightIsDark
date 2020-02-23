@@ -51,6 +51,10 @@ namespace UI
 
             _playerState.InventoryState.Dollars -= _data.AmmoShopData.Price;
             _playerState.InventoryState.AmmoCount += _data.AmmoShopData.Count;
+            if (_playerState.CurrentWeapon.AmmoLoaded == 0)
+            {
+                _playerState.CurrentWeapon.Reload();
+            }
         }
         
         public void TryBuyMine()
