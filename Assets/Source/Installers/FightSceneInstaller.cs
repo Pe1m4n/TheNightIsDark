@@ -40,6 +40,7 @@ namespace Installers
         [SerializeField] private BuildingCursorHolder _cursorHolder;
         [SerializeField] private MusicComponent _music;
         [SerializeField] private DayTimer _dayTimer;
+        [SerializeField] private ChangeMusicSound _changeMusicSound;
 
         public override void InstallBindings()
         {
@@ -78,6 +79,7 @@ namespace Installers
             Container.BindFactory<MineData, Vector3, MineView, GadgetFactory<MineData, MineView>>().
                 WithFactoryArguments(_minePrefab);
             Container.Bind<DayBehaviour>().AsSingle();
+            Container.BindInterfacesTo<ChangeMusicSound>().FromInstance(_changeMusicSound).AsSingle();
         }
 
         private void BindPlayerComponents()
