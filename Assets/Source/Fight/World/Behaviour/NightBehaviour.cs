@@ -1,4 +1,5 @@
 ﻿using Fight.Enemies;
+using Fight.State;
 using Fight.World;
 using UnityEngine;
 
@@ -10,19 +11,19 @@ namespace Fight
         private readonly EnemyFactory _enemyFactory;
         private readonly SpawnPointContainer _spawnPointContainer;
         private readonly DayNightChangeData _dayNightData;
-        private readonly WorldStateChanger _worldStateChanger;
+        private readonly FightState _fightState;
 
         private float _nextSpawn;
         
         public NightBehaviour(SpawnStrategy spawnStrategy, EnemyFactory enemyFactory,
             SpawnPointContainer spawnPointContainer, DayNightChangeData dayNightData,
-            WorldStateChanger worldStateChanger)
+            FightState fightState)
         {
             _spawnStrategy = spawnStrategy;
             _enemyFactory = enemyFactory;
             _spawnPointContainer = spawnPointContainer;
             _dayNightData = dayNightData;
-            _worldStateChanger = worldStateChanger;
+            _fightState = fightState;
         }
         
         public override void Start()
@@ -44,13 +45,13 @@ namespace Fight
 
         private void Spawn()
         {
-            if (!_spawnStrategy.spawnData.ContainsKey(_worldStateChanger.NightCount))
+            if (!_spawnStrategy.spawnData.ContainsKey(_fightState.NightId))
             {
                 return;
             }
 
             var spawnDelay = _dayNightData.NightSeconds /
-                             _spawnStrategy.spawnData[_worldStateChanger.NightCount].enemiesCount;
+                             _spawnStrategy.spawnData[_fightState.NightId].enemiesCount;
             var unitData = _spawnStrategy.GetUnitToSpawn();
             _enemyFactory.Create(unitData, _spawnPointContainer.GetRandomSpawnPoint());
             _nextSpawn = Time.time + spawnDelay;

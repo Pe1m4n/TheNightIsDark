@@ -800,6 +800,7 @@
               </e>
             </e>
             <e p="Enemies" t="Include">
+              <e p="AttackComponent.cs" t="Include" />
               <e p="EnemyData.cs" t="Include" />
               <e p="EnemyFactory.cs" t="Include" />
               <e p="EnemyView.cs" t="Include" />
@@ -811,6 +812,7 @@
               <e p="PlayerData.cs" t="Include" />
               <e p="PlayerView.cs" t="Include" />
             </e>
+            <e p="PlayOnAwake.cs" t="Include" />
             <e p="SelfDestructionComponent.cs" t="Include" />
             <e p="SpawnPointContainer.cs" t="Include" />
             <e p="SpawnStrategy.cs" t="Include" />

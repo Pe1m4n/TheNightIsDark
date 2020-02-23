@@ -8,15 +8,20 @@
         {
             Data = data;
 
-            AmmoCount = data.AmmoCount;
-            BarrelCount = data.BarrelCount;
-            MineCount = data.MineCount;
-            Dollars = data.Dollars;
+            Reset();
         }
         
         public int AmmoCount { get; set; }
         public int BarrelCount { get; set; }
         public int MineCount { get; set; }
         public int Dollars { get; set; }
+
+        public void Reset()
+        {
+            AmmoCount = Data.AmmoCount;
+            BarrelCount = Data.BarrelCount;
+            MineCount = Data.MineCount;
+            Dollars = Data.Dollars;
+        }
     }
 }
