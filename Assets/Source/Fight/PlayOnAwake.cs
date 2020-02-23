@@ -5,7 +5,7 @@ namespace Fight
 {
     public class PlayOnAwake : MonoBehaviour
     {
-        public UnityAction action;
+        [SerializeField] public UnityEvent action;
 
         private void Awake()
         {
