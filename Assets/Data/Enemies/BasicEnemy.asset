@@ -15,7 +15,8 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects: []
+    ReferencedUnityObjects:
+    - {fileID: 7807384051191956856, guid: f9648acc62352af4c81a6fd9c6035dfb, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -43,14 +44,14 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: EnemyPrefab
-      Entry: 6
-      Data: 
+      Entry: 10
+      Data: 0
     - Name: Speed
       Entry: 4
       Data: 0.5
     - Name: StopRadius
       Entry: 4
-      Data: 0
+      Data: 0.5
     - Name: Reward
       Entry: 3
       Data: 4
