@@ -3,6 +3,7 @@ using Common.InputSystem;
 using DefaultNamespace;
 using Fight;
 using Fight.Enemies;
+using Fight.Gadgets;
 using Fight.Health;
 using Fight.Shooting;
 using Fight.State;
@@ -31,6 +32,11 @@ namespace Installers
         [SerializeField] private ShopManager _shopManager;
         [SerializeField] private BottomPanelHUD _bottomHud;
         [SerializeField] private ShopData _shopData;
+        [SerializeField] private BarrelView _barrelPrefab;
+        [SerializeField] private MineView _minePrefab;
+        [SerializeField] private MineData _mineData;
+        [SerializeField] private BarrelData _barrelData;
+        [SerializeField] private BuildingCursorHolder _cursorHolder;
 
         public override void InstallBindings()
         {
@@ -49,6 +55,9 @@ namespace Installers
             Container.BindInterfacesTo<ShopManager>().FromInstance(_shopManager).AsSingle();
             Container.BindInterfacesTo<BottomPanelHUD>().FromInstance(_bottomHud).AsSingle();
             Container.Bind<ShopData>().FromInstance(_shopData).AsSingle();
+            Container.Bind<MineData>().FromInstance(_mineData).AsSingle();
+            Container.Bind<BarrelData>().FromInstance(_barrelData).AsSingle();
+            Container.Bind<BuildingCursorHolder>().FromInstance(_cursorHolder).AsSingle();
         }
 
         private void BindSpawning()
@@ -59,6 +68,11 @@ namespace Installers
             Container.Bind<SpawnPointContainer>().FromInstance(_spawnPointsContainer).AsSingle();
             Container.Bind<SpawnStrategy>().FromInstance(_spawnStrategy).AsSingle();
             Container.Bind<DayNightChangeData>().FromInstance(_dayNightChangeData).AsSingle();
+            Container.BindFactory<BarrelData, Vector3, BarrelView, GadgetFactory<BarrelData, BarrelView>>().
+                WithFactoryArguments(_barrelPrefab);
+            Container.BindFactory<MineData, Vector3, MineView, GadgetFactory<MineData, MineView>>().
+                WithFactoryArguments(_minePrefab);
+            Container.Bind<DayBehaviour>().AsSingle();
         }
 
         private void BindPlayerComponents()

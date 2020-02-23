@@ -806,6 +806,15 @@
               <e p="EnemyView.cs" t="Include" />
               <e p="SpawnPoint.cs" t="Include" />
             </e>
+            <e p="Gadgets" t="Include">
+              <e p="BarrelData.cs" t="Include" />
+              <e p="BarrelView.cs" t="Include" />
+              <e p="GadgetButtonsHolder.cs" t="Include" />
+              <e p="GadgetFactory.cs" t="Include" />
+              <e p="GadgetView.cs" t="Include" />
+              <e p="MineData.cs" t="Include" />
+              <e p="MineView.cs" t="Include" />
+            </e>
             <e p="Player" t="Include">
               <e p="InventoryData.cs" t="Include" />
               <e p="LightFlashAnimation.cs" t="Include" />
@@ -832,6 +841,8 @@
             </e>
             <e p="World" t="Include">
               <e p="Behaviour" t="Include">
+                <e p="BuildingCursorHolder.cs" t="Include" />
+                <e p="DayBehaviour.cs" t="Include" />
                 <e p="NightBehaviour.cs" t="Include" />
                 <e p="WorldBehaviourStrategy.cs" t="Include" />
               </e>

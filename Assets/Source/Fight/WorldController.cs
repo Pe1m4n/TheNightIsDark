@@ -21,7 +21,7 @@ namespace Fight
                 if (value == WorldState.Day)
                 {
                     Timer = _dayNightData.DaySeconds;
-                    CurrentBehaviourStrategy = null;
+                    CurrentBehaviourStrategy = _dayBehaviour;
                 }
                 else
                 {
@@ -48,6 +48,7 @@ namespace Fight
         private readonly IEnumerable<IWorldStateListener> _listeners;
         private readonly FightState _state;
         private readonly TextComponent _textComponent;
+        private readonly DayBehaviour _dayBehaviour;
         private NightBehaviour _nightBehaviour;
         private WorldBehaviourStrategy _currentBehaviourStrategy;
         private bool _disableSimulation;
@@ -65,13 +66,14 @@ namespace Fight
         
         public WorldController(IlluminationController illuminationController, NightBehaviour nightBehaviour,
          DayNightChangeData dayNightData, IEnumerable<IWorldStateListener> listeners, FightState state,
-         TextComponent textComponent)
+         TextComponent textComponent, DayBehaviour dayBehaviour)
         {
             _illuminationController = illuminationController;
             _dayNightData = dayNightData;
             _listeners = listeners;
             _state = state;
             _textComponent = textComponent;
+            _dayBehaviour = dayBehaviour;
             CurrentBehaviourStrategy = nightBehaviour;
             _nightBehaviour = nightBehaviour;
         }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Fight.Gadgets;
 using Fight.World;
 
 namespace Fight.State
@@ -12,6 +13,7 @@ namespace Fight.State
         
         public PlayerState PlayerState { get; private set; }
         public List<EnemyState> Enemies { get; } = new List<EnemyState>();
+        public List<GadgetView> GadgetViews { get; } = new List<GadgetView>();
         
         public int NightId { get; set; }
         
