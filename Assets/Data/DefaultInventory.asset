@@ -23,13 +23,13 @@ MonoBehaviour:
     SerializationNodes:
     - Name: AmmoCount
       Entry: 3
-      Data: 50
+      Data: 80
     - Name: BarrelCount
       Entry: 3
-      Data: 2
+      Data: 1
     - Name: MineCount
       Entry: 3
-      Data: 2
+      Data: 1
     - Name: Dollars
       Entry: 3
       Data: 20
