@@ -125,6 +125,7 @@ namespace Fight
             _state.Reset();
             _state.NightId++;
             Timer = _dayNightData.NightSeconds;
+            _nightBehaviour.Finish();
             DisaleSimulation = true;
             await Task.Delay(TimeSpan.FromSeconds(3f));
             DisaleSimulation = false;
