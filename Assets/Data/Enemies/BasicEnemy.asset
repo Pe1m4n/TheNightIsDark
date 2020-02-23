@@ -15,8 +15,7 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 7807384051191956856, guid: f9648acc62352af4c81a6fd9c6035dfb, type: 3}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -30,7 +29,7 @@ MonoBehaviour:
       Data: 0|Fight.Health.HealthData, Assembly-CSharp
     - Name: _totalHealth
       Entry: 3
-      Data: 1
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -39,19 +38,19 @@ MonoBehaviour:
       Data: 1|Fight.Health.AttackData, Assembly-CSharp
     - Name: _attack
       Entry: 3
-      Data: 3
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
     - Name: EnemyPrefab
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: Speed
       Entry: 4
-      Data: 1
+      Data: 0.5
     - Name: StopRadius
       Entry: 4
-      Data: 0.5
+      Data: 0
     - Name: Reward
       Entry: 3
-      Data: 2
+      Data: 4
