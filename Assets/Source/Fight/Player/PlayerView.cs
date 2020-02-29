@@ -11,7 +11,6 @@ namespace Fight
     [RequireComponent(typeof(Rigidbody2D), typeof(AudioSource))]
     public class PlayerView : ExtendedMonoBehaviour, IWorldStateListener
     {
-        private IInputSystem _inputSystem;
         private RotationComponent _rotationComponent;
         private ShootingComponent _shootingComponent;
         private AudioComponent _audioComponent;
@@ -19,11 +18,13 @@ namespace Fight
         private PlayerState _playerState;
         [SerializeField] private LightFlashAnimation _flashAnimation;
         private FightState _state;
+        private IPlayerInputController _playerInputController;
 
         [Inject]
-        public void SetUp(IInputSystem inputSystem, BulletFactory bulletFactory, PlayerState playerState, FightState state)
+        public void SetUp(BulletFactory bulletFactory, PlayerState playerState,
+            FightState state, IPlayerInputController playerInputController)
         {
-            _inputSystem = inputSystem;
+            _playerInputController = playerInputController;
             _bulletFactory = bulletFactory;
             _playerState = playerState;
             _playerState.SetPosition(transform.position);
@@ -40,9 +41,9 @@ namespace Fight
 
         protected override void Update()
         {
-            _rotationComponent.Update(_inputSystem.GetMousePosition());
+            _rotationComponent.UpdateWithDirection(_playerInputController.GetLookDirection());
 
-            if (_inputSystem.GetKeyDown(KeyCode.Mouse0) && _state.WorldState == WorldState.Night)
+            if (_playerInputController.ShotKeyDown() && _state.WorldState == WorldState.Night)
             {
                 Shoot();
             }

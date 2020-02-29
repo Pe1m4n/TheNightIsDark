@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Unity\Projects\TheNightIsDark" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
@@ -38,6 +39,63 @@
                 <e p="DOTweenModuleUtils.cs" t="Include" />
               </e>
               <e p="Readme.txt" t="Include" />
+            </e>
+          </e>
+          <e p="SimpleInput" t="Include">
+            <e p="Credits.txt" t="Include" />
+            <e p="Editor" t="Include">
+              <e p="AxisInputDrawer.cs" t="Include" />
+              <e p="BaseInputDrawer.cs" t="Include" />
+              <e p="ButtonInputDrawer.cs" t="Include" />
+              <e p="KeyInputDrawer.cs" t="Include" />
+              <e p="MouseButtonInputDrawer.cs" t="Include" />
+            </e>
+            <e p="Example" t="Include">
+              <e p="ExamplePlayerController.cs" t="Include" />
+            </e>
+            <e p="Readme.txt" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="AxisInputs" t="Include">
+                <e p="AxisInputKeyboard.cs" t="Include" />
+                <e p="AxisInputMouse.cs" t="Include" />
+                <e p="AxisInputPinchGesture.cs" t="Include" />
+                <e p="AxisInputRotateGesture.cs" t="Include" />
+                <e p="AxisInputSwipeGesture.cs" t="Include" />
+                <e p="AxisInputUI.cs" t="Include" />
+                <e p="Dpad.cs" t="Include" />
+                <e p="Joystick.cs" t="Include" />
+                <e p="SteeringWheel.cs" t="Include" />
+                <e p="Touchpad.cs" t="Include" />
+              </e>
+              <e p="ButtonInputs" t="Include">
+                <e p="ButtonInputKeyboard.cs" t="Include" />
+                <e p="ButtonInputSwipeGesture.cs" t="Include" />
+                <e p="ButtonInputUI.cs" t="Include" />
+              </e>
+              <e p="Core" t="Include">
+                <e p="BaseInput.cs" t="Include" />
+                <e p="ISimpleInputDraggable.cs" t="Include" />
+                <e p="ISimpleInputDraggableMultiTouch.cs" t="Include" />
+                <e p="NonDrawingGraphic.cs" t="Include" />
+                <e p="SelectivePointerInput.cs" t="Include" />
+                <e p="SimpleInputDragListener.cs" t="Include" />
+                <e p="SimpleInputMultiDragListener.cs" t="Include" />
+                <e p="SimpleInputUtils.cs" t="Include" />
+                <e p="SwipeGestureBase.cs" t="Include" />
+                <e p="UnityInputProvider.cs" t="Include" />
+              </e>
+              <e p="KeyInputs" t="Include">
+                <e p="KeyInputKeyboard.cs" t="Include" />
+                <e p="KeyInputSwipeGesture.cs" t="Include" />
+                <e p="KeyInputUI.cs" t="Include" />
+              </e>
+              <e p="MouseButtonInputs" t="Include">
+                <e p="MouseButtonInputKeyboard.cs" t="Include" />
+                <e p="MouseButtonInputSwipeGesture.cs" t="Include" />
+                <e p="MouseButtonInputUI.cs" t="Include" />
+              </e>
+              <e p="SimpleInput.cs" t="Include" />
+              <e p="SimpleInputHelper.cs" t="Include" />
             </e>
           </e>
           <e p="Sirenix" t="Include">
@@ -779,10 +837,18 @@
             <e p="ExtendedScriptableObject.cs" t="Include" />
             <e p="InputSystem" t="Include">
               <e p="IInputSystem.cs" t="Include" />
+              <e p="InputType.cs" t="Include" />
               <e p="UnityInputSystem.cs" t="Include" />
+              <e p="UnityTapInputSystem.cs" t="Include" />
             </e>
           </e>
+          <e p="Controls" t="Include">
+            <e p="ClickTapPlayerController.cs" t="Include" />
+            <e p="Joystick.cs" t="Include" />
+            <e p="MobileJoystickPlayerController.cs" t="Include" />
+          </e>
           <e p="Fight" t="Include">
+            <e p="ChangeMusicSound.cs" t="Include" />
             <e p="Components" t="Include">
               <e p="AudioComponent.cs" t="Include" />
               <e p="Health" t="Include">
@@ -820,6 +886,7 @@
             <e p="MusicComponent.cs" t="Include" />
             <e p="Player" t="Include">
               <e p="InventoryData.cs" t="Include" />
+              <e p="IPlayerInputController.cs" t="Include" />
               <e p="LightFlashAnimation.cs" t="Include" />
               <e p="PlayerData.cs" t="Include" />
               <e p="PlayerView.cs" t="Include" />
@@ -853,6 +920,7 @@
               <e p="IlluminationController.cs" t="Include" />
               <e p="IWorldStateListener.cs" t="Include" />
               <e p="WorldState.cs" t="Include" />
+              <e p="WorldStateChangeNotifier.cs" t="Include" />
               <e p="WorldStateChanger.cs" t="Include" />
             </e>
             <e p="WorldController.cs" t="Include" />
@@ -869,6 +937,7 @@
           </e>
           <e p="UI" t="Include">
             <e p="BottomPanelHUD.cs" t="Include" />
+            <e p="DayTimer.cs" t="Include" />
             <e p="HUD.cs" t="Include" />
             <e p="Shop.cs" t="Include" />
             <e p="TextComponent.cs" t="Include" />

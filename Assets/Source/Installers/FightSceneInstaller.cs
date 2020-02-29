@@ -1,5 +1,6 @@
 ﻿using System;
 using Common.InputSystem;
+using Controls;
 using DefaultNamespace;
 using Fight;
 using Fight.Enemies;
@@ -18,6 +19,7 @@ namespace Installers
 {
     public class FightSceneInstaller : MonoInstaller
     {
+        [SerializeField] private InputType _inputType;
         [SerializeField] private Camera _mainCamera;
         [SerializeField] private PlayerView playerView;
         [SerializeField] private Transform _bulletPoolTransform;
@@ -42,6 +44,10 @@ namespace Installers
         [SerializeField] private DayTimer _dayTimer;
         [SerializeField] private ChangeMusicSound _changeMusicSound;
 
+        [SerializeField] private Canvas _canvas;
+        [SerializeField] private Joystick _joystickControlsPrefab;
+        [SerializeField] private WorldStateChangeNotifier _worldStateChangeNotifier;
+
         public override void InstallBindings()
         {
             base.InstallBindings();
@@ -64,6 +70,31 @@ namespace Installers
             Container.Bind<BuildingCursorHolder>().FromInstance(_cursorHolder).AsSingle();
             Container.BindInterfacesTo<MusicComponent>().FromInstance(_music).AsSingle();
             Container.BindInterfacesAndSelfTo<DayTimer>().FromInstance(_dayTimer).AsSingle();
+
+            Container.BindInterfacesTo<WorldStateChangeNotifier>().FromInstance(_worldStateChangeNotifier).AsSingle();
+            
+            switch (_inputType)
+            {
+                case InputType.MouseClick:
+                    Container.BindInterfacesTo<UnityInputSystem>().AsSingle();
+                    Container.BindInterfacesTo<ClickTapPlayerController>().AsSingle().WithArguments(new Vector2(playerView.transform.position.x, playerView.transform.position.y));
+                    break;
+                case InputType.Touch:
+                    Container.BindInterfacesTo<UnityTapInputSystem>().AsSingle();
+                    Container.BindInterfacesTo<ClickTapPlayerController>().AsSingle().WithArguments(new Vector2(playerView.transform.position.x, playerView.transform.position.y));
+                    break;
+                case InputType.Joystick:
+                    var joystick =
+                        Instantiate(_joystickControlsPrefab,
+                            _canvas.transform);
+                    Container.BindInterfacesTo<Joystick>()
+                        .FromInstance(joystick).AsSingle();
+                    Container.BindInterfacesTo<UnityInputSystem>().AsSingle();
+                    Container.BindInterfacesTo<MobileJoystickPlayerController>().AsSingle();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private void BindSpawning()
@@ -94,7 +125,6 @@ namespace Installers
             Container.Bind<FightState>().AsSingle();
             Container.Bind<PlayerState>().AsSingle().WithArguments(_playerData);
             Container.Bind<Camera>().FromInstance(_mainCamera).AsSingle();
-            Container.BindInterfacesTo<UnityInputSystem>().AsSingle();
 
             Container.Bind<IlluminationController>().FromInstance(_illuminationController).AsSingle();
             Container.BindInterfacesAndSelfTo<WorldController>().AsSingle().NonLazy();

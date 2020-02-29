@@ -50,7 +50,7 @@ namespace Fight.Enemies
 
         protected override void Update()
         {
-            _rotationComponent.Update(State.Destination);
+            _rotationComponent.UpdateWithPosition(State.Destination);
             Behaviour?.Update();
             if (State.HealthState.CurrentHealth <= 0)
             {

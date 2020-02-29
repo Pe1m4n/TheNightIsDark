@@ -13,7 +13,7 @@ namespace Fight.State
             _rigidbody2D = rigidbody2D;
             _state = state;
             _rotationComponent = rotationComponent;
-            _rotationComponent.Update(state.Destination);
+            _rotationComponent.UpdateWithPosition(state.Destination);
         }
 
         public override void OnStart()

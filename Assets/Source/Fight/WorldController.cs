@@ -127,6 +127,10 @@ namespace Fight
             Timer = _dayNightData.NightSeconds;
             _nightBehaviour.Finish();
             DisaleSimulation = true;
+            foreach (var gadget in _state.GadgetViews)
+            {
+                gadget.Explode();
+            }
             await Task.Delay(TimeSpan.FromSeconds(3f));
             DisaleSimulation = false;
         }

@@ -16,11 +16,17 @@ namespace Fight
             _rigidbody2D = rigidbody2D;
         }
 
-        public void Update(Vector2 desiredLookPosition)
+        public void UpdateWithPosition(Vector2 desiredLookPosition)
         {
             var lookDirection = desiredLookPosition - _rigidbody2D.position;
-            float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+            UpdateWithDirection(lookDirection);
+        }
+
+        public void UpdateWithDirection(Vector2 direction)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             _rigidbody2D.rotation = angle;
         }
+        
     }
 }
