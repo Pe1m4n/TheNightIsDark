@@ -33,6 +33,7 @@ namespace Fight
 
         private void Awake()
         {
+            Physics2D.autoSimulation = false;
             var rigidBody = GetComponent<Rigidbody2D>();
             _rotationComponent = new RotationComponent(rigidBody);
             _audioComponent = new AudioComponent(GetComponent<AudioSource>());
@@ -42,7 +43,7 @@ namespace Fight
         protected override void Update()
         {
             _rotationComponent.UpdateWithDirection(_playerInputController.GetLookDirection());
-
+            Physics2D.Simulate(Time.deltaTime);
             if (_playerInputController.ShotKeyDown() && _state.WorldState == WorldState.Night)
             {
                 Shoot();
