@@ -6,24 +6,23 @@ namespace Fight.State
     {
         private readonly Rigidbody2D _rigidbody2D;
         private readonly EnemyState _state;
-        private readonly RotationComponent _rotationComponent;
 
-        public WalkBehaviour(Rigidbody2D rigidbody2D, EnemyState state, RotationComponent rotationComponent)
+        public WalkBehaviour(Rigidbody2D rigidbody2D, EnemyState state)
         {
             _rigidbody2D = rigidbody2D;
             _state = state;
-            _rotationComponent = rotationComponent;
-            _rotationComponent.UpdateWithPosition(state.Destination);
         }
 
         public override void OnStart()
         {
-            _rigidbody2D.velocity = _rotationComponent.UpVector * _state.Data.Speed;
+            var lookDir = _state.Destination - new Vector2(_rigidbody2D.position.x, _rigidbody2D.position.y);
+            _rigidbody2D.velocity = lookDir.normalized * _state.Data.Speed;
         }
 
         public override void Update()
         {
-            _rigidbody2D.velocity = _rotationComponent.UpVector * _state.Data.Speed;
+            var lookDir = _state.Destination - new Vector2(_rigidbody2D.position.x, _rigidbody2D.position.y);
+            _rigidbody2D.velocity = lookDir.normalized * _state.Data.Speed;
         }
 
         public override void OnFinish()

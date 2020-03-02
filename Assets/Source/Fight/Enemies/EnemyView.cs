@@ -14,10 +14,11 @@ namespace Fight.Enemies
 
         private AudioSource _audioSource;
         private EnemyBehaviour _behaviour;
-        private RotationComponent _rotationComponent;
+//        private RotationComponent _rotationComponent;
         private AudioTrack _deathSound;
         private PlayerState _playerState;
         private FightState _fightState;
+        private Rigidbody2D _rb;
 
         public EnemyBehaviour Behaviour
         {
@@ -30,15 +31,16 @@ namespace Fight.Enemies
             }
         }
         
+        
         [Inject]
         public void SetUp(EnemyState enemyState, PlayerState playerState, FightState fightState)
         {
             State = enemyState;
-            var rb = GetComponent<Rigidbody2D>();
+            _rb  = GetComponent<Rigidbody2D>();
             _animationController = GetComponentInChildren<Animator>();
             
-            _rotationComponent = new RotationComponent(rb);
-            Behaviour = new WalkBehaviour(rb, State, _rotationComponent);
+//            _rotationComponent = new RotationComponent(rb);
+            Behaviour = new WalkBehaviour(_rb, State);
             _audioSource = GetComponent<AudioSource>();
             _playerState = playerState;
             _fightState = fightState;
@@ -50,7 +52,10 @@ namespace Fight.Enemies
 
         protected override void Update()
         {
-            _rotationComponent.UpdateWithPosition(State.Destination);
+            var lookDir = State.Destination - new Vector2(_rb.position.x, _rb.position.y);
+            lookDir.Normalize();
+            _animationController.SetFloat("Direction_X", lookDir.x);
+            _animationController.SetFloat("Direction_Y", lookDir.y);
             Behaviour?.Update();
             if (State.HealthState.CurrentHealth <= 0)
             {
