@@ -5090,7 +5090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa65684933324bb8a540d7dcf428f3d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _inputType: 1
+  _inputType: 0
   _mainCamera: {fileID: 1008837656}
   playerView: {fileID: 653437835}
   _bulletPoolTransform: {fileID: 0}
