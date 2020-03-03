@@ -60,41 +60,17 @@ AnimationClip:
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
-  m_WrapMode: 4
+  m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
-    genericBindings:
-    - serializedVersion: 2
-      path: 0
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    pptrCurveMapping:
-    - {fileID: 21300000, guid: 1066685e6be41f1478589720227a1353, type: 3}
-    - {fileID: 21300000, guid: eccd41535c02605498e1ad2f8f034eed, type: 3}
-    - {fileID: 21300000, guid: ceb56270e73f8ba45a94dc664fa215f6, type: 3}
-    - {fileID: 21300000, guid: 8fa99b1a9a2d91e4eb4962c523dec511, type: 3}
-    - {fileID: 21300000, guid: f25ef00edc4224f4381668e0be29205d, type: 3}
-    - {fileID: 21300000, guid: ec00dc42c5bd3244ea234943e7e27051, type: 3}
-    - {fileID: 21300000, guid: 9dea16420010a20479a25a40faf6ddff, type: 3}
-    - {fileID: 21300000, guid: d7c35d7645fb0bf4b8d01c13ffa15704, type: 3}
-    - {fileID: 21300000, guid: fff2ef99d06dc1d478082b4d315bd2bf, type: 3}
-    - {fileID: 21300000, guid: 269ea54292ec4e747ab18e6c668e164d, type: 3}
-    - {fileID: 21300000, guid: 1d3d474e535299844be9bfa5c37f60b5, type: 3}
-    - {fileID: 21300000, guid: 25eb60ad10826fc4fa8be3d79b05df0c, type: 3}
-    - {fileID: 21300000, guid: 9da45f3b15f5cf0499d7b9b9fc405861, type: 3}
-    - {fileID: 21300000, guid: 0cf437ed42df6b44499276486024b6fb, type: 3}
-    - {fileID: 21300000, guid: b52092c82fa663846a8fd37a0a1ce28d, type: 3}
-    - {fileID: 21300000, guid: b50ad16e4d5cb93458433d702b55fdbb, type: 3}
-    - {fileID: 21300000, guid: e23896a1ba68a1f47839cd7a74745f09, type: 3}
-    - {fileID: 21300000, guid: c9b1303ee1de994469bc9ae1315b21f6, type: 3}
+    genericBindings: []
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
-    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseClip: {fileID: 7400000, guid: d0cf65443b6c6cf46930175a729331e3,
+      type: 2}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
     m_StopTime: 1.0166667
